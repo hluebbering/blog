@@ -99,7 +99,7 @@ fn_20 = [fn.subs({n:i}) for i in nvals]
 fig, ax = plt.subplots(figsize = (5, 4))
 plt.plot(nvals, fn_20, &#39;o&#39;) </code></pre>
 <p> </p>
-<p><img src="Plot1.png" width="650" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="Plot1.png" width="650" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 <div id="example-2.1.1." class="section level4">
@@ -144,7 +144,7 @@ a_80 = [abs(a.subs({n:i})) for i in nvals]
 fig, ax = plt.subplots(figsize = (6, 4))
 plt.plot(nvals, a_80, linewidth = 1, color = &#39;483d8b&#39;, label  = r&#39;$a_n = \dfrac{(2n+1)}{(5n+4)}$&#39;)
 plt.plot(nvals, a_80, &#39;o&#39;, color = &#39;8996d4&#39;, markeredgecolor = &#39;483d8b&#39;)</code></pre>
-<p><img src="Plot2.png" width="650" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="Plot2.png" width="650" style="display: block; margin: auto;" /></p>
 <p> </p>
 <p> </p>
 <p><span class="lp3">b. </span> <span class="math inline">\(\bf \lim{\cfrac{2n^2}{n^3+3}} = 0\)</span>.</p>
@@ -165,21 +165,19 @@ plt.plot(nvals, a_80, &#39;o&#39;, color = &#39;8996d4&#39;, markeredgecolor = &
 <p>Hence, this means <span class="math inline">\(\small \begin{align} \left|\cfrac{2n^2}{n^3+3} - 0 \right| &amp;\leq \left|\frac{2}{n}\right| \lt \left|\frac{3}{n}\right| \lt \epsilon .\  \end{align}\)</span></p>
 <p>So by definition of convergence of a sequence, <span class="math inline">\(\lim{\dfrac{2n^2}{n^3 + 3}} = 0\)</span>.</p>
 <p> </p>
-<p><span class="lp3">c. </span> <span class="math inline">\(\mathbf{\lim{\dfrac{\sin \left(n^2\right)}{\sqrt[3]{n}}} = 0}\)</span>.</p>
-<p>We want to prove the inequality <span class="math inline">\(\left|a_n − a\right| \lt \epsilon\)</span> for the sequence <span class="math inline">\(a_n = \tfrac{\sin \left(n^2\right)}{\sqrt[3]{n}}\ \)</span> and <span class="math inline">\(a=0 \in \mathbb{R}\)</span>. Hence, we want to show that for suitably large values of <span class="math inline">\(n \gt {N}\)</span>,</p>
-<p><span class="math display">\[\left|\cfrac{\sin \left(n^2\right)}{\sqrt[3]{n}}-0\right| \lt \epsilon.\]</span></p>
-<p><span class="math display">\[
-\begin{align} 
-\left|\frac{-1}{\sqrt[3]{n}}\right| \leq &amp; \ 
-\left|\frac{\sin \left(n^2\right)}{\sqrt[3]{n}} - 0\right| \leq \left|\frac{1}{\sqrt[3]{n}}\right| \\
-\tfrac{1}{\sqrt[3]{n}} &amp; \lt   \epsilon \ \Longleftrightarrow \ n \gt \tfrac{1}{\sqrt[3]{\epsilon}}
-\end{align}
-\]</span></p>
-<p><strong><code>PROOF.</code></strong> Let <span class="math inline">\(\epsilon \gt 0 \ \)</span> be arbitrary. Choose <span class="math inline">\(N \in \mathbb N \ \)</span> with <span class="math inline">\(N \gt \tfrac{1}{\sqrt[3]{\epsilon}}\)</span>.</p>
-<p>To verify that this choice of <span class="math inline">\(N\)</span> is appropriate, let <span class="math inline">\(n \in \mathbb N\)</span> satisfy <span class="math inline">\(n \geq N\)</span>.</p>
-<p>Then, <span class="math inline">\(n \geq N\)</span> implies <span class="math inline">\(n \gt \tfrac{1}{\sqrt[3]{\epsilon}}\ \)</span>, which is the same as saying <span class="math inline">\(\tfrac{1}{\sqrt[3]{n}} \lt \epsilon\)</span>.</p>
-<p>Hence, this means <span class="math inline">\(\small \begin{align} \left|\tfrac{\sin \left(n^2\right)}{\sqrt[3]{n}}-0\right| \leq \left|\tfrac{1}{\sqrt[3]{n}}\right| \lt \epsilon .\ \end{align}\)</span></p>
-<p>So by definition of convergence of a sequence, <span class="math inline">\(\lim{\tfrac{\sin \left(n^2\right)}{\sqrt[3]{\mathcal{n}}}} = 0\)</span>.</p>
+<pre class="language-python"><code>## define sequence
+a = (2*n**2) / (n**3 + 3)
+L = limit(abs(a), n, oo) # alternating series test
+print(&#39;The limit is&#39;, L)
+&gt;&gt;&gt; The limit is 0
+
+## plot sequence
+nvals = range(1, 81)
+a_80 = [abs(a.subs({n:i})) for i in nvals]
+fig, ax = plt.subplots(figsize = (6, 4))
+plt.plot(nvals, a_80, linewidth = 1, color = &#39;483d8b&#39;, label  = r&#39;$a_n = \dfrac{(2n+1)}{(5n+4)}$&#39;)
+plt.plot(nvals, a_80, &#39;o&#39;, color = &#39;8996d4&#39;, markeredgecolor = &#39;483d8b&#39;)</code></pre>
+<p><img src="Plot3.png" width="650" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 </div>
