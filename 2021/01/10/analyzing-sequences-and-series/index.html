@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<title>Analyzing Sequences and Series - Data Science Blog</title>
+<meta property="og:title" content="Analyzing Sequences and Series - Data Science Blog">
+
+
+  <link href='https://hluebbering.github.io/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">Analyzing Sequences and Series</h1>
+
+    
+    <span class="article-date">2021-01-10</span>
+    
+
+    <div class="article-content">
+      
+<script src="/2021/01/10/analyzing-sequences-and-series/index_files/header-attrs/header-attrs.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<div id="the-limit-of-a-sequence" class="section level3">
+<h3>The Limit of a Sequence</h3>
+<p><strong>Definition (Convergence of a Sequence).</strong> A sequence <span class="math inline">\((a_n)\)</span> <em>converges</em> to a real number <span class="math inline">\(a\)</span> if, for every positive number <span class="math inline">\(\epsilon\)</span>, there exists an <span class="math inline">\(N \in \mathbb N\)</span> such that whenever <span class="math inline">\(n \geq N\)</span> it follows that <span class="math inline">\(\left|a_n − a\right| \lt \epsilon\)</span>.</p>
+<p><span class="sp3">1. </span> Show that <span class="math inline">\(\lim_{n\rightarrow\infty}\left(\dfrac{n+1}{n}\right)=1\)</span></p>
+<p>We want to show that <span class="math inline">\(\left|a_n − a\right| \lt \epsilon,\)</span> and think about the points that satisfy an inequality of this type. The last line of our proof should be that for large values of <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[\left|\frac{n+1}{n}-1\right| \lt \epsilon .\]</span></p>
+<p>Simplifying <span class="math inline">\(\left|\tfrac{n+1}{n}-1\right| = \left|\tfrac{1}{n}\right|\)</span>. This is equivalent to the inequality <span class="math inline">\(\left|\tfrac{1}{n}\right| \lt \epsilon .\)</span> So we have <span class="math inline">\(\tfrac{1}{n} \lt \epsilon \text{ or } n \gt \tfrac{1}{\epsilon}\)</span>. Thus, choosing <span class="math inline">\(\mathbb{N}\)</span> to be an integer greater than <span class="math inline">\(\tfrac{1}{\epsilon}\)</span> will suffice.</p>
+<p><strong><code>PROOF.</code></strong> Let <span class="math inline">\(\epsilon \gt 0\)</span> be arbitrary. Choose <span class="math inline">\(N \in \mathbb{N}\)</span> with <span class="math inline">\(\mathbf{N \gt \tfrac{1}{\epsilon}}\)</span>. To verify that this choice of <span class="math inline">\(N\)</span> satisfies the conditions, let <span class="math inline">\(n \in \mathbb{N}\)</span> satisfy <span class="math inline">\(n \geq N\)</span>. Then this condition implies <span class="math inline">\(n \geq N \gt \tfrac{1}{\epsilon}\)</span>. Hence, <span class="math inline">\(n \gt \tfrac{1}{\epsilon}\)</span>, which is equivalent to <span class="math inline">\(\tfrac{1}{n} \lt \epsilon\)</span>. Therefore, <span class="math inline">\(\left|\tfrac{n+1}{n}-1\right| \lt \epsilon \;.\)</span></p>
+<div id="python-code" class="section level5">
+<h5>Python Code</h5>
+<pre class="language-python"><code>from sympy import limit_seq
+from sympy.abc import n
+
+## define sequence
+fn = (n+1)/n
+
+## compute the sequence limit
+L = limit_seq(fn, n)
+print(&quot;The sequence&quot;, fn, &quot;converges to:&quot;, L)
+&gt;&gt;&gt; The sequence (n + 1)/n converges to: 1</code></pre>
+<p>Next, we compute and plot the first 20 terms of the sequence <span class="math inline">\(\tfrac{n+1}{n}\)</span>.</p>
+<pre class="language-python"><code>## compute sequence terms
+nvals = range(1, 21) 
+fn_20 = [fn.subs({n:i}) for i in nvals]
+
+## plot sequence
+fig, ax = plt.subplots(figsize = (5, 4))
+plt.plot(nvals, fn_20, &#39;o&#39;) </code></pre>
+<p> </p>
+<p><img src="Plot1.png" width="650" style="display: block; margin: auto auto auto 0;" /></p>
+<hr />
+</div>
+<div id="example-2.1.1." class="section level4">
+<h4>Example 2.1.1.</h4>
+<p>Define the following sequence as <span class="math inline">\(a_n=\left(1,\ 1,-1,\ 1,\ 1,-1, \ \dots , \underbrace{1,\ 1, -1 \ ,}_{\text{sequence pattern}} \dots \right)\)</span>.</p>
+<p>Since there are infinitely many 1’s and -1’s, given any <span class="math inline">\(n\in N, \ \exists k,m \gt N\)</span> such that <span class="math inline">\(a_k=1\)</span> and <span class="math inline">\(a_m = -1.\)</span> We want to show that the sequence diverges.</p>
+<p><span class="sp3">1. </span> Given the sequence <span class="math inline">\(a_n = n-\sqrt{n+1}\sqrt{n+3}\)</span>:</p>
+<p><span class="lp3">a. </span> Evaluate <span class="math inline">\(a_{10}, a_{20}, \cdots , a_{50}\)</span> to numerically estimate the limit.</p>
+<p><span class="lp3">b. </span> Plot the first <span class="math inline">\(50\)</span> points of the sequence.</p>
+<p><span class="lp3">c. </span> Compute the <span class="math inline">\(\lim_{n \rightarrow \infty}a_n\)</span>.</p>
+<hr />
+</div>
+<div id="example-2.1.2." class="section level4">
+<h4>Example 2.1.2.</h4>
+<p><span class="sp3">2. </span> Verify that the following sequences converge to the proposed limit.</p>
+<p><span class="lp3">a. </span> <span class="math inline">\(\bf {\lim{\dfrac{2n+1}{5n+4}} = \dfrac{2}{5}}\)</span></p>
+<p>We want to prove the inequality <span class="math inline">\(\left|a_n − a\right| \lt \epsilon\)</span> for the sequence <span class="math inline">\(a_n = \tfrac{2n+1}{5n+4}\ \)</span> and <span class="math inline">\(a=\tfrac{2}{5} \in \mathbb{R}\)</span>. Hence, we want to show that for suitably large values of <span class="math inline">\(n \gt N\)</span>,</p>
+<p><span class="math display">\[\left|\frac{2n+1}{5n+4} - \frac{2}{5} \right| \lt \epsilon.\]</span></p>
+<p><span class="math display">\[
+\small 
+\begin{align} 
+\left|\frac{2n+1}{5n+4} - \frac{2}{5} \right| &amp; =  \frac{\left|5\left(2n+1\right)-2\left(5n+4\right)\right|}{5\left(5n+4\right)} = \frac{3}{5\left(5n+4\right)}\ \\
+&amp;\frac{3}{5\left(5n+4\right)} \lt \epsilon \  \Longleftrightarrow \  n \gt \frac{3 - 20 \epsilon}{25 \epsilon}
+\end{align}
+\]</span></p>
+<p><strong><code>PROOF.</code></strong> Let <span class="math inline">\(\epsilon \gt 0 \ \)</span> be arbitrary. Choose <span class="math inline">\(N \in \mathbb N \ \)</span> with <span class="math inline">\(N \gt \tfrac{3 - 20 \epsilon}{25 \epsilon}\ \)</span>.</p>
+<p>To verify that this choice of <span class="math inline">\(N\)</span> is appropriate, let <span class="math inline">\(n \in \mathbb N\)</span> satisfy <span class="math inline">\(n \geq N\)</span>.</p>
+<p>Then, <span class="math inline">\(n \geq N\)</span> implies <span class="math inline">\(n \gt \tfrac{3 - 20 \epsilon}{25 \epsilon}\ \)</span>, which is the same as saying <span class="math inline">\(\tfrac{3}{5 \left(5 n + 4\right)} \lt \epsilon\)</span>.</p>
+<p>Hence, this means
+<span class="math inline">\(\small{\left|\dfrac{2n+1}{5n+4} - \dfrac{2}{5} \right| = \left| \dfrac{3}{5 \left(5 n + 4\right)}\right| \lt \epsilon} .\)</span></p>
+<p>So by definition of convergence of a sequence, <span class="math inline">\(\lim{\tfrac{2n+1}{5n+4}} = \tfrac{2}{5}\)</span>.</p>
+<p> </p>
+<pre class="language-python"><code>## define sequence
+a = (2*n + 1) / (5*n + 4)
+L = limit(abs(a), n, oo) # alternating series test
+print(&#39;The limit is&#39;, L)
+&gt;&gt;&gt; The limit is 2/5
+
+## plot sequence
+nvals = range(1, 81)
+a_80 = [abs(a.subs({n:i})) for i in nvals]
+fig, ax = plt.subplots(figsize = (6, 4))
+plt.plot(nvals, a_80, linewidth = 1, color = &#39;483d8b&#39;, label  = r&#39;$a_n = \dfrac{(2n+1)}{(5n+4)}$&#39;)
+plt.plot(nvals, a_80, &#39;o&#39;, color = &#39;8996d4&#39;, markeredgecolor = &#39;483d8b&#39;)</code></pre>
+<p><img src="Plot2.png" width="650" style="display: block; margin: auto auto auto 0;" /></p>
+<p> </p>
+<p><span class="lp3">b. </span> <span class="math inline">\(\bf \lim{\cfrac{2n^2}{n^3+3}} = 0\)</span>.</p>
+<p> </p>
+<p><span class="lp3">c. </span> <span class="math inline">\(\bf \lim{\cfrac{\sin \left(n^2\right)}{\sqrt[3]{n}}} = 0\)</span>.</p>
+<hr />
+</div>
+</div>
+<div id="the-uniqueness-of-limits" class="section level3">
+<h3>The Uniqueness of Limits</h3>
+<p><strong>Theorem (Uniqueness of Limits).</strong> The limit of a sequence, when it exists, must be unique.</p>
+<div id="example-2.1.3." class="section level4">
+<h4>Example 2.1.3.</h4>
+<p><span class="sp3">4. </span> If <span class="math inline">\(\mathcal{a_n}\)</span> converges to a real number <span class="math inline">\(a\)</span> and also <span class="math inline">\(\mathcal{a_n}\)</span> converges to a real number <span class="math inline">\(b\)</span>, then <span class="math inline">\(a=b\)</span>.</p>
+<p>To get started, assume <span class="math inline">\(a_n \rightarrow a \text{ and } a_n \rightarrow b\)</span>. Now argue <span class="math inline">\(a=b\)</span>.</p>
+<hr />
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://github.com/hluebbering" class="footer-links-kudos"><img src="/images/github-logo.png" alt="Img link to Github" width="22" height="22"></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/hannahluebbering/" class="footer-links-kudos"><img src="/images/linkedin-logo.png" alt="Img link to Linkedin" width="22" height="22"></a>
+          </li>
+          <li>
+            <a href="https://orcid.org/0000-0003-0794-1930" class="footer-links-kudos"><img src="/images/orcid-logo.png" alt="ORCID iD" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

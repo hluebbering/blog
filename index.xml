@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science Blog</title>
+    <link>https://hluebbering.github.io/</link>
+    <description>Recent content on Data Science Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Jan 2021 21:13:14 -0500</lastBuildDate><atom:link href="https://hluebbering.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analyzing Sequences and Series</title>
+      <link>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series/</link>
+      <pubDate>Sun, 10 Jan 2021 21:13:14 -0500</pubDate>
+      
+      <guid>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series/</guid>
+      <description>The Limit of a Sequence Definition (Convergence of a Sequence). A sequence \((a_n)\) converges to a real number \(a\) if, for every positive number \(\epsilon\), there exists an \(N \in \mathbb N\) such that whenever \(n \geq N\) it follows that \(\left|a_n − a\right| \lt \epsilon\).
+1.  Show that \(\lim_{n\rightarrow\infty}\left(\dfrac{n+1}{n}\right)=1\)
+We want to show that \(\left|a_n − a\right| \lt \epsilon,\) and think about the points that satisfy an inequality of this type.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://hluebbering.github.io/about/</link>
+      <pubDate>Sun, 05 Jan 2020 21:48:51 -0700</pubDate>
+      
+      <guid>https://hluebbering.github.io/about/</guid>
+      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+    </item>
+    
+  </channel>
+</rss>
