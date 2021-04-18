@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.79.0" />
 
 
-<title>Analyzing Sequences and Series - Data Science Blog</title>
-<meta property="og:title" content="Analyzing Sequences and Series - Data Science Blog">
+<title>Analyzing Sequences and Series in Python - Data Science Blog</title>
+<meta property="og:title" content="Analyzing Sequences and Series in Python - Data Science Blog">
 
 
   <link href='https://hluebbering.github.io/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -54,10 +54,10 @@
 
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">4 min read</span>
     
 
-    <h1 class="article-title">Analyzing Sequences and Series</h1>
+    <h1 class="article-title">Analyzing Sequences and Series in Python</h1>
 
     
     <span class="article-date">2021-01-10</span>
@@ -65,7 +65,7 @@
 
     <div class="article-content">
       
-<script src="/2021/01/10/analyzing-sequences-and-series/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series-in-python/index_files/header-attrs/header-attrs.js"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
@@ -100,16 +100,6 @@ fig, ax = plt.subplots(figsize = (5, 4))
 plt.plot(nvals, fn_20, &#39;o&#39;) </code></pre>
 <p> </p>
 <p><img src="Plot1.png" width="650" style="display: block; margin: auto;" /></p>
-<hr />
-</div>
-<div id="example-2.1.1." class="section level4">
-<h4>Example 2.1.1.</h4>
-<p>Define the following sequence as <span class="math inline">\(a_n=\left(1,\ 1,-1,\ 1,\ 1,-1, \ \dots , \underbrace{1,\ 1, -1 \ ,}_{\text{sequence pattern}} \dots \right)\)</span>.</p>
-<p>Since there are infinitely many 1’s and -1’s, given any <span class="math inline">\(n\in N, \ \exists k,m \gt N\)</span> such that <span class="math inline">\(a_k=1\)</span> and <span class="math inline">\(a_m = -1.\)</span> We want to show that the sequence diverges.</p>
-<p><span class="sp3">1. </span> Given the sequence <span class="math inline">\(a_n = n-\sqrt{n+1}\sqrt{n+3}\)</span>:</p>
-<p><span class="lp3">a. </span> Evaluate <span class="math inline">\(a_{10}, a_{20}, \cdots , a_{50}\)</span> to numerically estimate the limit.</p>
-<p><span class="lp3">b. </span> Plot the first <span class="math inline">\(50\)</span> points of the sequence.</p>
-<p><span class="lp3">c. </span> Compute the <span class="math inline">\(\lim_{n \rightarrow \infty}a_n\)</span>.</p>
 <hr />
 </div>
 <div id="example-2.1.2." class="section level4">
@@ -178,16 +168,6 @@ fig, ax = plt.subplots(figsize = (6, 4))
 plt.plot(nvals, a_80, linewidth = 1, color = &#39;483d8b&#39;, label  = r&#39;$a_n = \dfrac{(2n+1)}{(5n+4)}$&#39;)
 plt.plot(nvals, a_80, &#39;o&#39;, color = &#39;8996d4&#39;, markeredgecolor = &#39;483d8b&#39;)</code></pre>
 <p><img src="Plot3.png" width="650" style="display: block; margin: auto;" /></p>
-<hr />
-</div>
-</div>
-<div id="the-uniqueness-of-limits" class="section level3">
-<h3>The Uniqueness of Limits</h3>
-<p><strong>Theorem (Uniqueness of Limits).</strong> The limit of a sequence, when it exists, must be unique.</p>
-<div id="example-2.1.3." class="section level4">
-<h4>Example 2.1.3.</h4>
-<p><span class="sp3">4. </span> If <span class="math inline">\(\mathcal{a_n}\)</span> converges to a real number <span class="math inline">\(a\)</span> and also <span class="math inline">\(\mathcal{a_n}\)</span> converges to a real number <span class="math inline">\(b\)</span>, then <span class="math inline">\(a=b\)</span>.</p>
-<p>To get started, assume <span class="math inline">\(a_n \rightarrow a \text{ and } a_n \rightarrow b\)</span>. Now argue <span class="math inline">\(a=b\)</span>.</p>
 <hr />
 </div>
 </div>
