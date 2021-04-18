@@ -8,11 +8,11 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Jan 2021 21:13:14 -0500</lastBuildDate><atom:link href="https://hluebbering.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Analyzing Sequences and Series</title>
-      <link>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series/</link>
+      <title>Analyzing Sequences and Series in Python</title>
+      <link>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series-in-python/</link>
       <pubDate>Sun, 10 Jan 2021 21:13:14 -0500</pubDate>
       
-      <guid>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series/</guid>
+      <guid>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series-in-python/</guid>
       <description>The Limit of a Sequence Definition (Convergence of a Sequence). A sequence \((a_n)\) converges to a real number \(a\) if, for every positive number \(\epsilon\), there exists an \(N \in \mathbb N\) such that whenever \(n \geq N\) it follows that \(\left|a_n − a\right| \lt \epsilon\).
 1.  Show that \(\lim_{n\rightarrow\infty}\left(\dfrac{n+1}{n}\right)=1\)
 We want to show that \(\left|a_n − a\right| \lt \epsilon,\) and think about the points that satisfy an inequality of this type.</description>
