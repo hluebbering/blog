@@ -5,7 +5,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url(//db.onlinewebfonts.com/c/0a086e32e41c5e5960b26626757f07f3?family=Apercu);
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
 
+.cody {
+  font-size: 13.5pt;
+  font-family: 'Apercu';
+  font-variant: all-small-caps;
+  font-weight: 600;
+}
+
+.prf {
+  font-size: 13.5pt;
+  font-family: 'Apercu';
+  font-variant: all-small-caps;
+  font-weight: 600;
+}
+
+p code {
+  font-family: 'Fira Code';
+  font-variant: all-small-caps;
+}
+
+
+body ul{
+  font-size: 12pt;
+}
 
 html {
   margin: 0;
@@ -27,7 +52,7 @@ html {
 
 .nav {
   /*max-width: 75%;*/
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 15px;
   text-align: right;
@@ -77,11 +102,11 @@ html {
 
 .content {
   /*max-width: 75%;*/
-  max-width: 700px;
+  max-width: 800px;
   margin: 40px auto 10px;
   padding: 0 15px;
   font-size: 16px;
-  line-height: 1.2em;
+  line-height: 1.6em;
   color: #333;
 }
 
@@ -312,13 +337,13 @@ html {
 
 h1 {
   font-family: 'Noto Serif TC', serif;
-  color: #2F4F4F;
-  font-size: 1.3em;
+  color: black;
+  font-size: 1.4em;
 }
 h1.title {
   font-family: 'Noto Serif TC', serif;
   color: black;
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 .author{
   font-family: 'Noto Serif TC', serif;
@@ -349,31 +374,33 @@ figure{
   font-family: 'Vollkorn', serif;
 }
 h2 {
-  font-family: 'Markazi Text', serif;
-  font-size: 1.1em !important;
-  color: #2f4f4f;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2em !important;
+  color: #1c253c;
 }
     
 h3 {
-  font-family: 'Crimson Pro', serif;
-  font-size: 1.3em !important;
-  color: #4a646c;
+  /*font-family: 'Crimson Pro', serif;*/
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.9em !important;
+  color: #1f3e5a;
   margin-block-start: 1em;
   margin-block-end: 1em;
 }
 h4 {
-  font-family: 'Crimson Pro', serif;
-  font-size: 1em !important;
-  color: #738276;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.75em !important;
+  color: #5643fd;
   margin-block-start: 1.4em;
   margin-block-end: 0;
   
 }
 h5 {
-  color:#8FBC8F;
-  text-shadow: #9CCCB8;
+  /*color:#8FBC8F;
+  text-shadow: #9CCCB8;*/
+  color: #281c3c;
   font-family: 'Crimson Pro', serif;
-  font-size: 0.8em;
+  font-size: 0.7em;
   margin-block-start: 1em;
   margin-block-end: 0;
 }
@@ -381,7 +408,8 @@ h5 {
 body {
   font-family: "Times New Roman", Times, serif;
   /*margin: 30.6px;*/
-  font-size: 10pt;
+  font-size: 12pt;
+  color: black;
   margin: 0;
   padding: 0;
   position: relative;
@@ -393,15 +421,12 @@ body {
 }
 
 p {
-   font-size: 11pt;
+   font-size: 12pt;
    padding: 1.4px;
-   line-height: 2em;
+   line-height: 1.5em;
+   color: black;
    margin-block-start: 0.5em;
    margin-block-end: 0.5em;
-}
-
-.mjx-chtml {
-  padding: 8px;
 }
 
 .a1 {
@@ -423,127 +448,300 @@ a {
 .b1 {
   color: black;
   font-family: 'Vollkorn', serif;
-  font-size: 14px;
+  font-size: 8pt;
+  border-radius: 1px;
+  width: 80%;
+  /* background: #f9fafb; */
+  /* margin: auto; */
+  box-shadow: 4px 4px 4px 4px #aaa;
+  padding: 4px;
+}
+
+.b2 {
+  color: black;
+  font-family: 'Vollkorn', serif;
+  font-size: 8pt;
   border-radius: 25px;
-  width: 88%;
-  background: #f9fafb;
+  width: 80%;
+  box-shadow: 4px 4px 4px 4px #aaa;
+  padding: 4px;
+}
+
+.b3 {
+  width: 96%;
+  padding: 1px;
   margin: auto;
-  box-shadow: 4px 4px 4px #aaa;
-  padding: 8px;
+  font-family: 'Vollkorn', serif;
+}
+.b3 p{
+  font-size: 11pt;
+}
+
+.b45 {
+  padding: 0;
+  width: 97%;
+  margin: auto;
+  /*font-family: 'Vollkorn', serif;*/
+}
+.b45 p{
+  font-size: 11.5pt;
+}
+
+
+
+.solutions {
+  padding: 0;
+  margin: auto;
+  width: 94%;
+}
+.solutions p{
+  font-size: 11pt;
+}
+
+.summary {
+  text-decoration-color: #ccc;
+  color: #ccc;
+  font-family: PT Sans Caption;
+  font-size: 19px;
 }
 
 
 
 .sp0 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#ffcb69;
-  font-size:1.6em;
-  padding:0;
-  margin-left:2px;
+  font-size: 16pt;
+  padding: 0;
 }
 
 .sp1 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#FF9173;
-  font-size:1.6em;
+  font-size: 16pt;
+  padding: 0;
+  font-weight: bold;
+}
+
+.lp1 {
+  font-family: Apercu;
+  color:#FF9173;
+  font-size:12.2pt;
   padding: 1px;
-  margin-left:2px;
 }
 
 .sp2 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#FF6161;
-  font-size:1.6em;
+  font-size: 16pt;
   padding: 1px;
-  margin-left:2px;
+}
+.lp2 {
+  font-family: Apercu;
+  color:#FF6161;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp3 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#EC4E8D;
-  font-size:1.6em;
+  font-size: 16pt;
   padding: 1px;
-  margin-left:2px;
 }
 
 .lp3 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#fc89ac;
-  font-size:1.1em;
+  font-size:12.2pt;
   padding: 1px;
-  margin-left:2px;
-  font-weight: 600px;
+}
+.lp32 {
+  font-family: Apercu;
+  color:#F347C0;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp4 {
-  font-family: 'Trocchi', sans-serif;
-  color:#f1a7fe;
-  font-size:1.6em;
+  font-family: Apercu;
+  color:#9536B3;
+  font-size: 16pt;
   padding: 1px;
-  margin-left:2px;
+}
+
+.lp4 {
+  font-family: Apercu;
+  color:#9536B3;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp5 {
-  font-family: 'Trocchi', sans-serif;
-  color:#ACA4E2;
-  font-size:1.6em;
+  font-family: Apercu;
+  color:#884FD1;
+  font-size: 16pt;
   padding: 1px;
-  margin-left:2px;
+}
+
+.lp5 {
+  font-family: Apercu;
+  color:#884FD1;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp6 {
-  font-family: 'Trocchi', sans-serif;
-  color:#967bb6;
-  font-size:1.6em;
+  font-family: Apercu;
+  color:#7B68EE;
+  font-size: 16pt;
   padding:0;
-  margin-left:2px;
+}
+.lp6 {
+  font-family: Apercu;
+  color:#7B68EE;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp7 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#4682b4;
-  font-size:1.6em;
+  font-size: 16pt;
   padding: 1px;
-  margin-left:2px;
+}
+.lp7 {
+  font-family: Apercu;
+  color:#4682b4;
+  font-size:12.2pt;
+  padding: 1px;
 }
 .sp8 {
-  font-family: 'Trocchi', sans-serif;
-  color:#abcdef;
-  font-size:1.6em;
+  font-family: Apercu;
+  color:#00b7eb;
+  font-size: 16pt;
   padding: 1px;
-  margin-left:2px;
+}
+
+.lp8 {
+  font-family: Apercu;
+  color:#00b7eb;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp9 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#38BDBB;
-  font-size:1.6em;
+  font-size: 16pt;
   padding:0;
-  margin-left:2px;
+}
+
+.lp9 {
+  font-family: Apercu;
+  color:#38BDBB;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp10 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#5CBD92;
-  font-size:1.6em;
+  font-size: 16pt;
   padding:0;
-  margin-left:2px;
+}
+
+.lp10 {
+  font-family: Apercu;
+  color:#5CBD92;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp11 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#8fbc8f;
-  font-size:1.6em;
-  padding:0;
-  margin-left:2px;
+  font-size: 16pt;
+}
+
+.lp11 {
+  font-family: Apercu;
+  color:#8fbc8f;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp12 {
-  font-family: 'Trocchi', sans-serif;
+  font-family: Apercu;
   color:#008080;
-  font-size:1.6em;
+  font-size: 16pt;
   padding: 1px;
-  margin-left:2px;
+}
+.lp12 {
+  font-family: Apercu;
+  color:#008080;
+  font-size:12.2pt;
+  padding: 1px;
+}
+
+/*JUSTIN BIEBER JUSTICE COLORS*/ 
+
+.sp13 {
+  font-family: Apercu;
+  color:#47ca9f;
+  font-size: 16pt;
+  padding: 1px;
+}
+
+.lp13 {
+  font-family: Apercu;
+  color: #47ca9f;
+  font-size: 12.2pt;
+  padding: 1px;
+}
+.lp14 {
+  font-family: Apercu;
+  color:#aed17b;
+  font-size:12.2pt;
+  padding: 1px;
+}
+.sp14 {
+  font-family: Apercu;
+  color:#aed17b;
+  font-size: 16pt;
+  padding: 1px;
+}
+.lp15 {
+  font-family: Apercu;
+  color:#34976b;
+  font-size:12.2pt;
+  padding: 1px;
+}
+.lp16 {
+  font-family: Apercu;
+  color:#309ea4;
+  font-size:12.2pt;
+  padding: 1px;
+}
+.lp17 {
+  font-family: Apercu;
+  color:#20696f;
+  font-size:12.2pt;
+  padding: 1px;
+}
+
+/*-------------------------------------*/ 
+
+.sp20 {
+  font-family: Apercu;
+  color:#aed17b;
+  font-size: 16pt;
+  padding: 1px;
+}
+.lp21 {
+  font-family: Apercu;
+  color:#20696f;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 
@@ -555,14 +753,15 @@ a {
 code[class*="language-"],
 pre[class*="language-"] {
   color: #393A34;
-  font-size: 12px;
-  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  font-size: 9pt;
+  /*font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;*/
+  font-family: 'Fira Code', monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  line-height: 1.2em;
+  line-height: 1.5em;
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
@@ -608,17 +807,22 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #999988; font-style: italic;
+  color: #aaa;
+  font-style: italic;
 }
 
 .token.namespace {
   opacity: .7;
 }
 
-.token.string,
-.token.attr-value {
-  color: #e3116c;
+.token.class-name {
+  color: rgb(63, 77, 140);
+  font-weight: 600;
+  font-size: 98%;
 }
+
+
+
 .token.punctuation,
 .token.operator {
   color: #393A34; /* no highlight */
@@ -627,7 +831,6 @@ pre[class*="language-"] {
 .token.entity,
 .token.url,
 .token.symbol,
-.token.number,
 .token.boolean,
 .token.variable,
 .token.constant,
@@ -638,34 +841,40 @@ pre[class*="language-"] {
   font-weight: 600;
 }
 
-.hljs-number {
-  color: #007D4B;
+.hljs-number, 
+span.hljs-number {
+  color: #275fe4;
+  font-weight: 500;
+}
+
+span.token.keyword, .token.keyword {
+  color: #388538;
   font-weight: 600;
 }
 
+
 .token.atrule,
-.token.keyword,
 .token.attr-name,
 .language-autohotkey .token.selector {
-  color: #00a4db;
+  color: #3b7a57;
+  font-weight: 600;
 }
 
 .token.function,
 .token.deleted,
 .language-autohotkey .token.tag {
-  color: #9a050f;
+  color: #a9203e;
 }
 
 .token.tag,
 .token.selector,
-.language-autohotkey .token.keyword {
+.language-autohotkey {
   color: #00009f;
 }
 
 .token.important,
 .token.function,
 .token.bold {
-  font-weight: bold;
 }
 
 .token.italic {
@@ -673,23 +882,23 @@ pre[class*="language-"] {
 }
 
 .hljs-keyword {
-  color: #00a4db;
-  font-weight: 500;
+  color: #0f884b;
+  font-weight: 600;
 }
 
 
 
 pre {
-  /*color: #393A34;*/
   color: rgb(57, 58, 52);
-  font-family: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  /*font-family: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;*/
+  font-family: 'Fira Code', monospace;
   padding: 1em;
   margin: .5em 0;
   overflow: auto;
   border: 1px solid #dddddd;
   background-color: white;
   display: block;
-  font-size: 0.95em;
+  font-size: 9pt;
   line-height: 1.2em;
   word-break: break-all;
   word-wrap: break-word;
@@ -697,13 +906,14 @@ pre {
 }
 
 pre code {
-  font-family: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
-  font-size: 0.95em;
+  /*font-family: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;*/
+  /*font-size: 0.95em;
+  font-size: 12pt;*/
 }
 
 .token.punctuation, .token.operator {
-  color: #1C1D00;
-  font-weight: 500;
+  color: black;
+  font-weight: 400;
 }
 
 .hljs {
@@ -711,24 +921,62 @@ pre code {
 }
 
 .hljs-meta {
-  color: #1f7199;
+  color: #a0a1a7;
+}
+span.token.number,
+.token.number {
+  color: DarkMagenta;
+  font-weight: 500;
+}
+
+span.hljs-string,
+.hljs-string {
+  color: #673ab7;
+  font-weight: 400;
 }
 
 .hljs-section, .hljs-title {
-  color: #800;
+  color: #a9203e;
   font-weight: 700;
 }
 
-.hljs-deletion, .hljs-number, .hljs-quote, .hljs-selector-class, .hljs-selector-id, .hljs-template-tag, .hljs-type {
+.hljs-deletion, .hljs-quote, .hljs-selector-class, .hljs-selector-id, .hljs-template-tag, .hljs-type {
   color: #007D4B;
 }
 
 
+ol {
+  font-size: 12pt;
+  color: #1E2852;
+}
 
-Style Attribute {
-  color: #f8f8f2;
-  background-color: transparent;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
+ul {
+  font-size: 12pt;
+  color: #3c1c31;
+}
+
+em {
+  font-size: 12pt;
+  color: #3c1c31;
+}
+  
+strong, b {
+  font-size: 12pt;
+  color: #3c1c31;
+}
+
+.proof1 {
+  display: block;
+  margin: auto;
+  max-width: 96.5%;
+  font-style: normal;
+  font-size: 12pt;
+}
+.proof1:before {
+  content: "Proof.";
+  font-size: 12pt;
+  color: black;
+  font-variant: small-caps;
+  font-family: Apercu;
+  font-weight: 600;
 }

@@ -1,33 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series-in-python/</loc>
-    <lastmod>2021-01-10T21:13:14-05:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://hluebbering.github.io/</loc>
-    <lastmod>2021-01-10T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hluebbering.github.io/2021/04/19/googles-pagerank/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://hluebbering.github.io/post/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hluebbering.github.io/2021/01/10/sequences-and-series-in-python/</loc>
     <lastmod>2021-01-10T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hluebbering.github.io/about/</loc>
     <lastmod>2020-01-05T21:48:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hluebbering.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hluebbering.github.io/tags/</loc>
   </url>
-  
 </urlset>

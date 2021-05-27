@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.83.1" />
+
+
+<title>Sequences and Series in Python - Data Science Blog</title>
+<meta property="og:title" content="Sequences and Series in Python - Data Science Blog">
+
+
+  <link href='https://hluebbering.github.io/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">Sequences and Series in Python</h1>
+
+    
+    <span class="article-date">2021-01-10</span>
+    
+
+    <div class="article-content">
+      
+<script src="https://hluebbering.github.io/2021/01/10/sequences-and-series-in-python/index_files/header-attrs/header-attrs.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<div id="convergence-of-a-sequence" class="section level2">
+<h2>Convergence of a Sequence</h2>
+<p><span class="lp12">Definition. (Sequence Convergence) </span> A sequence <span class="math inline">\((a_n)\)</span> converges to a real number <span class="math inline">\(a\)</span> if, for every positive number <span class="math inline">\(\epsilon\)</span>, there exists an <span class="math inline">\(N \in \mathbb N\)</span> such that whenever <span class="math inline">\(n \geq N\)</span> it follows that <span class="math inline">\(\left|a_n − a\right| \lt \epsilon\)</span>.</p>
+<p>In the following, we will determine whether a given sequence converges to a certain limit, and then we’ll use <code>Python</code> to illustrate the sequence graphically. The method is to compute and plot the first <span class="math inline">\(20\)</span> values of the given sequence, which can be done using the following <code>Python</code> libraries:</p>
+<pre class="language-python"><code>## import sympy
+from sympy import limit_seq
+from sympy.abc import n</code></pre>
+<hr />
+<div id="show-that-limlimits_nrightarrowinftyleftfracn1nright-equiv-1." class="section level3">
+<h3><span class="sp10">1. </span> Show that <span class="math inline">\(\lim\limits_{n\rightarrow\infty}\left(\frac{n+1}{n}\right) \equiv 1\)</span>.</h3>
+<div class="b45">
+<p>We want to prove the inequality <span class="math inline">\(\left|a_n − a\right| \lt \epsilon\)</span> for the sequence <span class="math inline">\(a_n \equiv \frac{n+1}{n}\ \)</span> and <span class="math inline">\(a\equiv1\)</span>.</p>
+<p><span class="lp11"><span class="prf"> Proof. </span></span> Let <span class="math inline">\(\epsilon \gt 0 \ \)</span> be arbitrary. Choose <span class="math inline">\(N \in \mathbb N \ \)</span> with <span class="math inline">\(N \gt \frac{1}{\epsilon}\)</span>. To verify that this choice of <span class="math inline">\(N\)</span> is appropriate, let <span class="math inline">\(n \in \mathbb N\)</span> satisfy <span class="math inline">\(n \geq N\)</span>. Then <span class="math inline">\(n \gt \frac{1}{\epsilon}\ \)</span>, which is the same as saying <span class="math inline">\(\frac{1}{n} \lt \epsilon\)</span>. Hence, this means</p>
+<p><span class="math display">\[\begin{align} \left|\frac{n+1}{n}-1\right| \equiv \left|\frac{(n+1) - n}{n}\right| \equiv \frac{1}{n} \lt \epsilon .\end{align}\]</span></p>
+<p>So by the definition of convergence, <span class="math inline">\(\lim\limits_{n\to \infty}{\frac{n+1}{n}} \equiv 1\)</span>.</p>
+<p><span class="lp11"><span class="cody">Python Code. </span></span></p>
+<pre class="language-python"><code>## compute the sequence limit
+a = (n + 1)/n
+L = limit_seq(a, n)
+print(&quot;The sequence converges to:&quot;, L)
+
+## compute sequence terms
+nvals = range(1, 21) 
+a_20 = [a.subs({n:i}) for i in nvals]
+
+## plot sequence
+fig, ax = plt.subplots(figsize = (5, 4))
+plt.plot(nvals, a_20, &#39;o&#39;) </code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="Plot1.png" alt="Observe that as $n$ tends to $\infty$, the sequence $a_n \equiv \frac{(n + 1)}{n}$ approaches $1$." width="600" />
+<p class="caption">
+Figure 1: Observe that as <span class="math inline">\(n\)</span> tends to <span class="math inline">\(\infty\)</span>, the sequence <span class="math inline">\(a_n \equiv \frac{(n + 1)}{n}\)</span> approaches <span class="math inline">\(1\)</span>.
+</p>
+</div>
+</div>
+<hr />
+</div>
+<div id="verify-that-the-following-sequences-converge-to-the-proposed-limit." class="section level3">
+<h3><span class="sp4">2. </span> Verify that the following sequences converge to the proposed limit.</h3>
+<p><strong><span class="lp4"><span class="math inline">\(\;\)</span> (a) </span> <span class="math inline">\(\displaystyle \mathbf{\lim_{n \to \infty}{\frac{2n+1}{5n+4}} \equiv \frac{2}{5}}\)</span></strong></p>
+<div class="b45">
+<p>We want to prove the inequality <span class="math inline">\(\left|a_n − a\right| \lt \epsilon\)</span> for the sequence <span class="math inline">\(a_n \equiv \frac{2n+1}{5n+4}\ \)</span> and <span class="math inline">\(a\equiv\frac{2}{5}\)</span>.</p>
+<p><span class="lp5"><span class="prf"> Proof. </span></span> Let <span class="math inline">\(\epsilon \gt 0 \ \)</span> be arbitrary. Choose <span class="math inline">\(N \in \mathbb N \ \)</span> with <span class="math inline">\(N \gt \frac{3 - 20 \epsilon}{25 \epsilon}\)</span>. To verify that this choice of <span class="math inline">\(N\)</span> is appropriate, let <span class="math inline">\(n \in \mathbb N\)</span> satisfy <span class="math inline">\(n \geq N\)</span>. Then <span class="math inline">\(n \gt \frac{3 - 20 \epsilon}{25 \epsilon}\ \)</span>, which is the same as saying <span class="math inline">\(\frac{3}{5 \left(5 n + 4\right)} \lt \epsilon\)</span>. Hence, this means</p>
+<p><span class="math display">\[\begin{align} \left|\frac{2n+1}{5n+4} - \frac{2}{5} \right|  \equiv  \frac{\left|5\left(2n+1\right)-2\left(5n+4\right)\right|}{5\left(5n+4\right)} \equiv \frac{3}{5\left(5n+4\right)}\ \lt \epsilon .\end{align}\]</span></p>
+<p>So by the definition of convergence, <span class="math inline">\(\lim\limits_{n\to \infty}{\frac{2n+1}{5n+4}} \equiv \frac{2}{5}\)</span>.</p>
+<p><span class="lp5"><span class="cody">Python Code. </span></span></p>
+<pre class="language-python"><code>## define sequence
+a = (2*n + 1) / (5*n + 4)
+L = limit(abs(a), n, oo) # alternating series test
+print(&#39;The limit is&#39;, L)
+
+## plot sequence
+nvals = range(1, 81)
+a_80 = [abs(a.subs({n:i})) for i in nvals]
+fig, ax = plt.subplots(figsize = (6, 4))
+plt.plot(nvals, a_80, linewidth = 1, color = &#39;483d8b&#39;)
+plt.plot(nvals, a_80, &#39;o&#39;, color = &#39;8996d4&#39;, markeredgecolor = &#39;483d8b&#39;)</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="Plot2.png" alt="Observe that as $n$ tends to $\infty$, the sequence $a_n \equiv \frac{2n+1}{5n+4}$ approaches $\frac{2}{5} \equiv 0.40$." width="600" />
+<p class="caption">
+Figure 2: Observe that as <span class="math inline">\(n\)</span> tends to <span class="math inline">\(\infty\)</span>, the sequence <span class="math inline">\(a_n \equiv \frac{2n+1}{5n+4}\)</span> approaches <span class="math inline">\(\frac{2}{5} \equiv 0.40\)</span>.
+</p>
+</div>
+</div>
+<hr />
+<p><strong><span class="lp7"><span class="math inline">\(\;\)</span> (b) </span> <span class="math inline">\(\displaystyle \mathbf{ \lim_{n \to \infty}{\frac{2n^2}{n^3+3}} \equiv 0}\)</span></strong></p>
+<div class="b45">
+<p>We want to prove the inequality <span class="math inline">\(\left|a_n − a\right| \lt \epsilon\)</span> for the sequence <span class="math inline">\(a_n \equiv \frac{2n^2}{n^3+3}\ \)</span> and <span class="math inline">\(a\equiv0\)</span>.</p>
+<p><span class="lp8"><span class="prf"> Proof. </span></span> Let <span class="math inline">\(\epsilon \gt 0 \ \)</span> be arbitrary. Choose <span class="math inline">\(N \in \mathbb N \ \)</span> with <span class="math inline">\(N \gt \frac{3}{\epsilon}\)</span>. To verify that this choice of <span class="math inline">\(N\)</span> is appropriate, let <span class="math inline">\(n \in \mathbb N\)</span> satisfy <span class="math inline">\(n \geq N\)</span>. Then, <span class="math inline">\(n \geq N\)</span> implies <span class="math inline">\(n \gt \frac{3}{\epsilon}\ \)</span>, which is the same as saying <span class="math inline">\(\frac{3}{n} \lt \epsilon\)</span>. Hence, this means</p>
+<p><span class="math display">\[\begin{align}\left|\frac{2n^2}{n^3+3} - 0 \right|  \equiv  \frac{2n^2}{n^3 + 3} \leq \frac{2}{n+\frac{3}{n^2}} \lt \frac{3}{n} \lt \epsilon .\end{align}\]</span></p>
+<p>So by the definition of convergence, <span class="math inline">\(\lim\limits_{n\to \infty}{\frac{2n^2}{n^3 + 3}} \equiv 0\)</span>.</p>
+<p><span class="lp8"><span class="cody">Python Code. </span></span></p>
+<pre class="language-python"><code>## define sequence
+a = (2*n**2) / (n**3 + 3)
+L = limit(abs(a), n, oo) # alternating series test
+print(&#39;The limit is&#39;, L)
+
+## plot sequence
+nvals = range(1, 81)
+a_80 = [abs(a.subs({n:i})) for i in nvals]
+fig, ax = plt.subplots(figsize = (6, 4))
+plt.plot(nvals, a_80, linewidth = 1, color = &#39;483d8b&#39;)
+plt.plot(nvals, a_80, &#39;o&#39;, color = &#39;8996d4&#39;, markeredgecolor = &#39;483d8b&#39;)</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="Plot3.png" alt="Observe that as $n$ tends to $\infty$, the sequence $a_n \equiv \frac{2n^2}{n^3+3}$ approaches $0$." width="600" />
+<p class="caption">
+Figure 3: Observe that as <span class="math inline">\(n\)</span> tends to <span class="math inline">\(\infty\)</span>, the sequence <span class="math inline">\(a_n \equiv \frac{2n^2}{n^3+3}\)</span> approaches <span class="math inline">\(0\)</span>.
+</p>
+</div>
+</div>
+<hr />
+</div>
+<div id="references" class="section level3 unnumbered">
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-10.7717/peerj-cs.103">
+<p>[1] <span class="smallcaps">Meurer</span>, A., <span class="smallcaps">Smith</span>, C. P., <span class="smallcaps">Paprocki</span>, M., <span class="smallcaps">Čertík</span>, O., <span class="smallcaps">Kirpichev</span>, S. B., <span class="smallcaps">Rocklin</span>, M., <span class="smallcaps">Kumar</span>, A., <span class="smallcaps">Ivanov</span>, S., <span class="smallcaps">Moore</span>, J. K., <span class="smallcaps">Singh</span>, S., <span class="smallcaps">Rathnayake</span>, T., <span class="smallcaps">Vig</span>, S., <span class="smallcaps">Granger</span>, B. E., <span class="smallcaps">Muller</span>, R. P., <span class="smallcaps">Bonazzi</span>, F., <span class="smallcaps">Gupta</span>, H., <span class="smallcaps">Vats</span>, S., <span class="smallcaps">Johansson</span>, F., <span class="smallcaps">Pedregosa</span>, F., <span class="smallcaps">Curry</span>, M. J., <span class="smallcaps">Terrel</span>, A. R., <span class="smallcaps">Roučka</span>, Š., <span class="smallcaps">Saboo</span>, A., <span class="smallcaps">Fernando</span>, I., <span class="smallcaps">Kulal</span>, S., <span class="smallcaps">Cimrman</span>, R. and <span class="smallcaps">Scopatz</span>, A. (2017). SymPy: Symbolic computing in Python. <em>PeerJ Computer Science</em> <strong>3</strong> e103.</p>
+</div>
+<div id="ref-abbottUnderstandingAnalysis2015">
+<p>[2] <span class="smallcaps">Abbott</span>, S. (2015). <em>Understanding analysis</em>. Springer, New York.</p>
+</div>
+</div>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://github.com/hluebbering" class="footer-links-kudos"><img src="/images/github-logo.png" alt="Img link to Github" width="22" height="22"></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/hannahluebbering/" class="footer-links-kudos"><img src="/images/linkedin-logo.png" alt="Img link to Linkedin" width="22" height="22"></a>
+          </li>
+          <li>
+            <a href="https://orcid.org/0000-0003-0794-1930" class="footer-links-kudos"><img src="/images/orcid-logo.png" alt="ORCID iD" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

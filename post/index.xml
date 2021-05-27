@@ -6,16 +6,25 @@
     <description>Recent content in Posts on Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jan 2021 21:13:14 -0500</lastBuildDate><atom:link href="https://hluebbering.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Analyzing Sequences and Series in Python</title>
-      <link>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series-in-python/</link>
+      <title>Google&#39;s PageRank</title>
+      <link>https://hluebbering.github.io/2021/04/19/googles-pagerank/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hluebbering.github.io/2021/04/19/googles-pagerank/</guid>
+      <description>PageRank as a Markov Chain Sergy Brin and Larry Page developed PageRank as a way to rank the importance of a webpage on the internet based on the counted number of links to it. For example, consider the following internet:
+ Figure 1: PageRank as a Markov Chain.  \(\require{color}\definecolor{teall}{RGB}{58, 171, 174} \definecolor{bluemoon}{RGB}{62, 71, 125} \definecolor{redhot}{RGB}{255, 145, 115} \definecolor{periwinkle}{RGB}{159, 160, 255} \definecolor{purpley}{RGB}{31, 35, 255} \definecolor{gween}{RGB}{73, 175, 129} \definecolor{pinky}{RGB}{251, 109, 134} \definecolor{pinky2}{RGB}{241, 67, 192} \definecolor{maglav}{RGB}{241, 167, 254}\)</description>
+    </item>
+    
+    <item>
+      <title>Sequences and Series in Python</title>
+      <link>https://hluebbering.github.io/2021/01/10/sequences-and-series-in-python/</link>
       <pubDate>Sun, 10 Jan 2021 21:13:14 -0500</pubDate>
       
-      <guid>https://hluebbering.github.io/2021/01/10/analyzing-sequences-and-series-in-python/</guid>
-      <description>The Limit of a Sequence Definition (Convergence of a Sequence). A sequence \((a_n)\) converges to a real number \(a\) if, for every positive number \(\epsilon\), there exists an \(N \in \mathbb N\) such that whenever \(n \geq N\) it follows that \(\left|a_n − a\right| \lt \epsilon\).
-1.  Show that \(\lim_{n\rightarrow\infty}\left(\dfrac{n+1}{n}\right)=1\)
-We want to show that \(\left|a_n − a\right| \lt \epsilon,\) and think about the points that satisfy an inequality of this type.</description>
+      <guid>https://hluebbering.github.io/2021/01/10/sequences-and-series-in-python/</guid>
+      <description>Convergence of a Sequence Definition. (Sequence Convergence)  A sequence \((a_n)\) converges to a real number \(a\) if, for every positive number \(\epsilon\), there exists an \(N \in \mathbb N\) such that whenever \(n \geq N\) it follows that \(\left|a_n − a\right| \lt \epsilon\).
+In the following, we will determine whether a given sequence converges to a certain limit, and then we’ll use Python to illustrate the sequence graphically.</description>
     </item>
     
   </channel>
