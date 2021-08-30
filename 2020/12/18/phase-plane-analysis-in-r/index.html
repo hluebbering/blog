@@ -54,7 +54,7 @@
 
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">6 min read</span>
     
 
     <h1 class="article-title">Phase Plane Analysis in R</h1>
@@ -80,46 +80,45 @@
 <p><span class="math inline">\(\require{color}\definecolor{teall}{RGB}{58, 171, 174} \definecolor{bluemoon}{RGB}{62, 71, 125} \definecolor{redhot}{RGB}{255, 145, 115} \definecolor{periwinkle}{RGB}{159, 160, 255} \definecolor{purpley}{RGB}{31, 35, 255} \definecolor{gween}{RGB}{73, 175, 129} \definecolor{pinky}{RGB}{251, 109, 134} \definecolor{pinky2}{RGB}{241, 67, 192} \definecolor{maglav}{RGB}{241, 167, 254}\)</span></p>
 <div id="linearization" class="section level3">
 <h3>Linearization</h3>
-<p>Next, we will show how to find the eigenvalues <span class="math inline">\(\mathbf{\lambda}\)</span> for a set of fixed points. Fixed Points <span class="math inline">\(\mathbf{(x^{\star}, y^{\star})}\)</span> occur for <span class="math inline">\(\mathrm{\dot x = 0}\)</span> and <span class="math inline">\(\mathrm{\dot y = 0}\)</span>.</p>
+<p>Next, we will show how to find the eigenvalues <span class="math inline">\(\mathbf{\lambda}\)</span> for a set of fixed points. Fixed points <span class="math inline">\(\mathbf{(x^{\star}, y^{\star})}\)</span> occur for <span class="math inline">\(\mathrm{\dot x = 0}\)</span> and <span class="math inline">\(\mathrm{\dot y = 0}\)</span>.</p>
 <div class="b3">
-<p><span class="lp3">Step 1. </span> Substitute <span class="math inline">\(\mathrm{\dot x}\)</span> and <span class="math inline">\(\mathrm{\dot y}\)</span> into the following <strong>Jacobian Matrix:</strong> <span class="math inline">\(\mathit{{\color{redhot}\mathbf{A}} \equiv }\small\begin{pmatrix} \mathrm{\frac{\partial{\dot x}}{\partial x}} &amp; \mathrm{\frac{\partial \dot x}{\partial y}} \\\mathrm{\frac{\partial \dot y}{\partial x}} &amp;\mathrm{\frac{\partial \dot y}{\partial y}}\end{pmatrix}\)</span></p>
-<p><span class="lp3">Step 2. </span> Evaluate matrix <span class="math inline">\(\mathbf{A}\)</span> at any fixed point <span class="math inline">\(\mathbf(x^{\star}, y^{\star})\)</span>.</p>
-<p><span class="lp3">Step 3. </span> The eigenvalue <span class="math inline">\(\mathbf{\lambda}\)</span> for the fixed point is calculated with the characteristic equation <span class="math inline">\(\mathrm{det}\mathit{(A-\lambda I)}=0\)</span>.</p>
-<p><span class="math display">\[\small\begin{align}&amp;{\color{pinky2}\mathbf{A}_{\small\mathrm{(x^{\star}, y^{\star})}}}\mathbf{-}\begin{bmatrix}\lambda &amp; 0 \\ 0 &amp; \lambda \end{bmatrix} = 0 &amp; \\ &amp;\begin{bmatrix} a_1 - \lambda &amp; a_2 \\ a_3 &amp; a_4 -\lambda \end{bmatrix} = 0 &amp; \\ &amp;(a_1 - \lambda) \times (a_4 -\lambda) - (a_2) \times (a_3) = 0 \end{align}\]</span></p>
-<p><span class="lp3">Step 4. </span> The roots of the above equation can be calculated as <span class="math inline">\(\small{\bf\color{pinky}\lambda} = \mathrm{\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}\)</span></p>
+<p><span class="pr2">Step 1. </span> Substitute <span class="math inline">\(\mathrm{\dot x}\)</span> and <span class="math inline">\(\mathrm{\dot y}\)</span> into the following <strong>Jacobian Matrix:</strong></p>
+<p><span class="math display">\[\mathit{{\color{redhot}\mathbf{A}} \equiv }\small\begin{pmatrix} \mathrm{\frac{\partial{\dot x}}{\partial x}} &amp; \mathrm{\frac{\partial \dot x}{\partial y}} \\\mathrm{\frac{\partial \dot y}{\partial x}} &amp;\mathrm{\frac{\partial \dot y}{\partial y}}\end{pmatrix}\]</span></p>
+<p><span class="pr2">Step 2. </span> Evaluate matrix <span class="math inline">\(\mathbf{A}\)</span> at any fixed point <span class="math inline">\(\mathbf(x^{\star}, y^{\star})\)</span>.</p>
+<p><span class="pr2">Step 3. </span> The eigenvalue <span class="math inline">\(\mathbf{\lambda}\)</span> for the fixed point is calculated with the characteristic equation <span class="math inline">\(\mathrm{det}\mathit{(A-\lambda I)}=0\)</span>.</p>
+<p><span class="math display">\[\small\begin{align}&amp;{\color{pinky2}\mathbf{A}_{\small\mathrm{(x^{\star}, y^{\star})}}}\mathbf{-}\begin{pmatrix}\lambda &amp; 0 \\ 0 &amp; \lambda \end{pmatrix} = 0 &amp; \\ &amp;\begin{pmatrix} a_1 - \lambda &amp; a_2 \\ a_3 &amp; a_4 -\lambda \end{pmatrix} = 0 &amp; \\ &amp;(a_1 - \lambda) \times (a_4 -\lambda) - (a_2) \times (a_3) = 0 \end{align}\]</span></p>
+<p><span class="pr2">Step 4. </span> The roots of the above equation can be calculated as <span class="math inline">\(\small{\bf\color{pinky}\lambda} = \mathrm{\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}\)</span></p>
 </div>
 </div>
 <div id="types-of-fixed-points" class="section level3">
 <h3>Types of Fixed Points</h3>
 <div class="b3">
-<p><span class="lp4">Stable Node:</span> The fixed point will be a stable node if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are real numbers with the same sign: <span class="math inline">\(\lambda_{1,2} &gt; 0\)</span> or <span class="math inline">\(\lambda_{1,2} &lt; 0\)</span>.</p>
-<p><span class="lp4">Saddle Node:</span> The fixed point will be a saddle point if one eigenvalue <span class="math inline">\(\lambda_1\)</span> is greater than 0, and the other eigenvalue <span class="math inline">\(\lambda_2\)</span> is less than 0.</p>
-<p><span class="lp4">Center Node:</span> The origin of the system will form a center if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are pure imaginary. The fixed point will be an outgoing spirals if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are complex with positive real parts. The fixed point will be oscillating in nature if the eigenvalues <span class="math inline">\(\lambda_i\)</span> change from real to imaginary.</p>
-<p><span class="lp4">Isolated:</span> The origin will be an isolated fixed point if the determinant <span class="math inline">\(\nabla\)</span> comes out to be 0.</p>
-<p><span class="lp4">Unstable Star:</span> The fixed point will be a unstable star if there is only one eigenvalue <span class="math inline">\(\lambda_1\)</span> for the system.</p>
+<p><span class="pr3">Stable Node:</span> The fixed point will be a stable node if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are real numbers with the same sign: <span class="math inline">\(\lambda_{1,2} &gt; 0\)</span> or <span class="math inline">\(\lambda_{1,2} &lt; 0\)</span>.</p>
+<p><span class="pr3">Saddle Node:</span> The fixed point will be a saddle point if one eigenvalue <span class="math inline">\(\lambda_1\)</span> is greater than 0, and the other eigenvalue <span class="math inline">\(\lambda_2\)</span> is less than 0.</p>
+<p><span class="pr3">Center Node:</span> The origin of the system will form a center if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are pure imaginary. The fixed point will be an outgoing spirals if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are complex with positive real parts. The fixed point will be oscillating in nature if the eigenvalues <span class="math inline">\(\lambda_i\)</span> change from real to imaginary.</p>
+<p><span class="pr3">Isolated:</span> The origin will be an isolated fixed point if the determinant <span class="math inline">\(\nabla\)</span> comes out to be 0.</p>
+<p><span class="pr3">Unstable Star:</span> The fixed point will be a unstable star if there is only one eigenvalue <span class="math inline">\(\lambda_1\)</span> for the system.</p>
 </div>
-<p> </p>
 <hr />
 </div>
 <div id="equilibrium-points-and-stability-example" class="section level3">
 <h3>Equilibrium Points and Stability Example</h3>
-<p><strong><span class="sp12">1. </span> Find the equilibrium points to the ODE <span class="math inline">\(\color{bluemoon} \frac{dy}{dt}=4-y^2\)</span></strong></p>
+<p><strong><span class="sp7">1. </span></strong> Find the equilibrium points to the following: <span class="math inline">\(\bf \color{bluemoon} \frac{dy}{dt}=4-y^2\)</span></p>
 <div class="b3">
-<p><span class="math display">\[\begin{align}\frac{dy}{dt} &amp;= 4-y^2 = 0 \\0 &amp; = (2-y)(2+y) \\ &amp;\Rightarrow \ \  \color{purpley}y \equiv -2,2\end{align}\]</span></p>
+<p><span class="math display">\[\mathit{\begin{align}\mathrm{\tfrac{dy}{dt}} &amp;= 4-y^2 = 0 \\0 &amp; = (2-y)(2+y) \\ {\color{purpley}\star} \ \color{bluemoon}y &amp;\equiv -2, \ 2\end{align}}\]</span></p>
 </div>
-<p>If for every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span> such that whenever <span class="math inline">\(|y(0)-y_*|&lt;\delta\)</span> then <span class="math inline">\(|y(t)-y_*|&lt;\epsilon\)</span> for all <span class="math inline">\(t\)</span>. Hence, a fixed point is stable if a system placed a small distance away from the fixed point continues to remain close to the fixed point. And a fixed point is unstable if a system placed a small perturbation away from the fixed point causes the solution to diverge. There are 2 methods for determining the stability of a fixed point: Phase Portrait Analysis or the Taylor Series Expansion.</p>
 <div class="b3">
-<p><span class="lp6">Phase Portrait Analysis. </span> A phase portrait plots the derivative <span class="math inline">\(\dot x\)</span> against the dependent variable <span class="math inline">\(x\)</span>. We can find the equilibrium points at locations where <span class="math inline">\(f\)</span> crosses the <span class="math inline">\(\mathcal x-\text{axis}\)</span>.</p>
+<p><span class="lp7">Definition. </span> If for every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span> such that whenever <span class="math inline">\(|y(0)-y_*|&lt;\delta\)</span> then <span class="math inline">\(|y(t)-y_*|&lt;\epsilon\)</span> for all <span class="math inline">\(t\)</span>. Hence, a fixed point is stable if a system placed a small distance away from the fixed point continues to remain close to the fixed point. And a fixed point is unstable if a system placed a small perturbation away from the fixed point causes the solution to diverge. There are 2 methods for determining the stability of a fixed point: Phase Portrait Analysis or the Taylor Series Expansion.</p>
+<p><span class="lp8">Definition. </span> A phase portrait plots the derivative <span class="math inline">\(\dot x\)</span> against the dependent variable <span class="math inline">\(x\)</span>. We can find the equilibrium points at locations where <span class="math inline">\(f\)</span> crosses the <span class="math inline">\(\mathcal x-\text{axis}\)</span>.</p>
 </div>
 <p>We can represent the flow of <span class="math inline">\(f\)</span> in the phase portrait by placing arrows along the dependent variable’s axis, indicating whether <span class="math inline">\(f\)</span> would be increasing or decreasing. Points where arrows on both side of the equilibrium point towards each other <span class="math inline">\(\rightarrow\;\; \leftarrow\)</span> denotes stability. And points where arrows on both side of the equilibrium point away from each other <span class="math inline">\(\leftarrow\;\; \rightarrow\)</span> denotes instability.</p>
 <p>In the following, we plot the phase portrait for <span class="math inline">\(\frac{dy}{dt}=4-y^2\)</span>. The trajectories plotted shows that solutions converge towards <span class="math inline">\(y=2\)</span>, but away from <span class="math inline">\(y=-2\)</span>. Hence, the equilibrium point <span class="math inline">\(y^*=2\)</span> is stable and the equilibrium point <span class="math inline">\(y^*=-2\)</span> is unstable.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-2-1.png" alt="Figure  1: Phase Portrait for $\frac{dy}{dt}=4-y^2$. The trajectories plotted shows that solutions converge towards $y=2$, but away from $y=-2$." width="400" />
+<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-2-1.png" alt="Phase Portrait for $\frac{dy}{dt}=4-y^2$. The trajectories plotted shows that solutions converge towards $y=2$, but away from $y=-2$." width="40%" />
 <p class="caption">
-Figure 1: Figure 1: Phase Portrait for <span class="math inline">\(\frac{dy}{dt}=4-y^2\)</span>. The trajectories plotted shows that solutions converge towards <span class="math inline">\(y=2\)</span>, but away from <span class="math inline">\(y=-2\)</span>.
+Figure 1: Phase Portrait for <span class="math inline">\(\frac{dy}{dt}=4-y^2\)</span>. The trajectories plotted shows that solutions converge towards <span class="math inline">\(y=2\)</span>, but away from <span class="math inline">\(y=-2\)</span>.
 </p>
 </div>
-<p> </p>
 <hr />
 </div>
 </div>
@@ -130,20 +129,20 @@ Figure 1: Figure 1: Phase Portrait for <span class="math inline">\(\frac{dy}{dt}
 <p><span class="math display">\[\color{navy}\tau_i \frac{dI}{dt} = -I + (k_i - r_i I) \, S_i(c_3 E - c_4 I + Q)\]</span></p>
 <p>In our numerical search of the steady-state points, we study the cases where the derivatives of <span class="math inline">\(E\)</span> and <span class="math inline">\(I\)</span> are zero. Since the system is highly nonlinear, we have to do it numerically. First, we draw the flow field and then draw the nullclines of the system. The <span class="math inline">\(x\)</span>-nullclines are defined by <span class="math inline">\(f(x,y)=0\)</span>, and the <span class="math inline">\(y\)</span>-nullclines are defined by <span class="math inline">\(g(x, y)=0\)</span>. These are the locations where <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> do not change with time.</p>
 <div class="b3">
-<p><span class="lp7">Definition. </span> Non-linear systems can exhibit a type of behavior known as a limit cycle. If there is only one steady-state solution, and if the steady-state solution is unstable, a limit cycle will occur.</p>
+<p><span class="lp9">Definition. </span> Non-linear systems can exhibit a type of behavior known as a limit cycle. If there is only one steady-state solution, and if the steady-state solution is unstable, a limit cycle will occur.</p>
 </div>
-<p>In the following, we define the parameters for satisfying conditions 18 and 20 as <span class="math inline">\(c_1=16\)</span>, <span class="math inline">\(c_2 = 12\)</span>, <span class="math inline">\(c_3=15\)</span>, <span class="math inline">\(c_4=3\)</span>, <span class="math inline">\(a_e = 1.3\)</span>, <span class="math inline">\(\theta_e=4\)</span>, <span class="math inline">\(a_i=2\)</span>, <span class="math inline">\(\theta_i = 3.7\)</span>, <span class="math inline">\(r_e=1\)</span> and <span class="math inline">\(r_i=1\)</span>. We can determine a steady-state solution by the intersection of the nullclines as follows.</p>
+<p>In the following, we define the parameters for satisfying the studies given conditions as <span class="math inline">\(c_1=16\)</span>, <span class="math inline">\(c_2 = 12\)</span>, <span class="math inline">\(c_3=15\)</span>, <span class="math inline">\(c_4=3\)</span>, <span class="math inline">\(a_e = 1.3\)</span>, <span class="math inline">\(\theta_e=4\)</span>, <span class="math inline">\(a_i=2\)</span>, <span class="math inline">\(\theta_i = 3.7\)</span>, <span class="math inline">\(r_e=1\)</span> and <span class="math inline">\(r_i=1\)</span>. We can determine a steady-state solution by the intersection of the nullclines as follows.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
-<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-6-1.png" alt="Figure  2: Phase Plane Analysis. Determine the steady-state solution by the nullclines' intersection. Parameters: $c_1=16$, $c_2 = 12$, $c_3=15$, $c_4=3$, $a_e = 1.3$, $\theta_e=4$, $a_i=2$, $\theta_i = 3.7$, $r_e=1$, $r_i=1$." width="400" />
+<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-6-1.png" alt="Phase Plane Analysis. Determine the steady-state solution by the nullclines' intersection." width="400" />
 <p class="caption">
-Figure 2: Figure 2: Phase Plane Analysis. Determine the steady-state solution by the nullclines’ intersection. Parameters: <span class="math inline">\(c_1=16\)</span>, <span class="math inline">\(c_2 = 12\)</span>, <span class="math inline">\(c_3=15\)</span>, <span class="math inline">\(c_4=3\)</span>, <span class="math inline">\(a_e = 1.3\)</span>, <span class="math inline">\(\theta_e=4\)</span>, <span class="math inline">\(a_i=2\)</span>, <span class="math inline">\(\theta_i = 3.7\)</span>, <span class="math inline">\(r_e=1\)</span>, <span class="math inline">\(r_i=1\)</span>.
+Figure 2: Phase Plane Analysis. Determine the steady-state solution by the nullclines’ intersection.
 </p>
 </div>
 <p>In the phase plane, the limit cycle is an isolated closed orbit, where “closed” means the periodicity of movement, and “isolated” means the limit of motion, where nearby trajectories converge or deviate. We can alter our initial values of <span class="math inline">\(E_0\)</span> and <span class="math inline">\(I_0\)</span> to obtain different paths in the phase space.</p>
 <div class="figure" style="text-align: center"><span id="fig:Final"></span>
-<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/Final-1.png" alt="Figure  3: Phase Plane Analysis showing limit cycle trajectory in response to constant simulation $P=1.25$. Dashed lines are nullclines. Parameters: $c_1=16$, $c_2 = 12$, $c_3=15$, $c_4=3$, $a_e = 1.3$, $\theta_e=4$, $a_i=2$, $\theta_i = 3.7$, $r_e=1$, $r_i=1$." width="400" />
+<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/Final-1.png" alt="Phase Plane Analysis showing limit cycle trajectory in response to constant simulation $P=1.25$. Dashed lines are nullclines." width="400" />
 <p class="caption">
-Figure 3: Figure 3: Phase Plane Analysis showing limit cycle trajectory in response to constant simulation <span class="math inline">\(P=1.25\)</span>. Dashed lines are nullclines. Parameters: <span class="math inline">\(c_1=16\)</span>, <span class="math inline">\(c_2 = 12\)</span>, <span class="math inline">\(c_3=15\)</span>, <span class="math inline">\(c_4=3\)</span>, <span class="math inline">\(a_e = 1.3\)</span>, <span class="math inline">\(\theta_e=4\)</span>, <span class="math inline">\(a_i=2\)</span>, <span class="math inline">\(\theta_i = 3.7\)</span>, <span class="math inline">\(r_e=1\)</span>, <span class="math inline">\(r_i=1\)</span>.
+Figure 3: Phase Plane Analysis showing limit cycle trajectory in response to constant simulation <span class="math inline">\(P=1.25\)</span>. Dashed lines are nullclines.
 </p>
 </div>
 <p>The phase plane analysis illustrates a bounded steady-state solution that is classified as unstable; this is a typical feature of a limit cycle. The solution’s oscillating behavior, shown in Figure 10, follows typical limit cycle behavior:</p>
@@ -159,9 +158,9 @@ Figure 3: Figure 3: Phase Plane Analysis showing limit cycle trajectory in respo
 </ul>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
-<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-9-1.png" alt="Figure  4: $I(t)$ and $E(t)$ for limit cycle shown above. The limit cycle depends on the value of $P$, i.e. $Q$ being set equal to zero." width="350" />
+<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-9-1.png" alt="$I(t)$ and $E(t)$ for limit cycle shown above. The limit cycle depends on the value of $P$, i.e. $Q$ being set equal to zero." width="350" />
 <p class="caption">
-Figure 4: Figure 4: <span class="math inline">\(I(t)\)</span> and <span class="math inline">\(E(t)\)</span> for limit cycle shown above. The limit cycle depends on the value of <span class="math inline">\(P\)</span>, i.e. <span class="math inline">\(Q\)</span> being set equal to zero.
+Figure 4: <span class="math inline">\(I(t)\)</span> and <span class="math inline">\(E(t)\)</span> for limit cycle shown above. The limit cycle depends on the value of <span class="math inline">\(P\)</span>, i.e. <span class="math inline">\(Q\)</span> being set equal to zero.
 </p>
 </div>
 <hr />
@@ -170,15 +169,6 @@ Figure 4: Figure 4: <span class="math inline">\(I(t)\)</span> and <span class="m
 <div id="refs" class="references csl-bib-body">
 <div id="ref-grayling2014" class="csl-entry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Grayling</span>, M. J. (2014). <span class="nocase">phaseR: An R Package for Phase Plane Analysis of Autonomous ODE Systems</span>. <em>The R Journal</em>.</div>
-</div>
-<div id="ref-enwiki:1024194494" class="csl-entry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline"><span class="smallcaps">Wikipedia contributors</span>. (2021). <span>PageRank</span> <span></span> <span>Wikipedia</span>, the free encyclopedia.</div>
-</div>
-<div id="ref-layLinearAlgebraIts2016" class="csl-entry">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline"><span class="smallcaps">Lay</span>, D. C., <span class="smallcaps">Lay</span>, S. R. and <span class="smallcaps">McDonald</span>, J. (2016). <em>Linear algebra and its applications</em>. <span>Pearson</span>, <span>Boston</span>.</div>
-</div>
-<div id="ref-peretti2014mathematical" class="csl-entry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline"><span class="smallcaps">Peretti</span>, A., <span class="smallcaps">Roveda</span>, A. and <span class="smallcaps">others</span>. (2014). <em>On the mathematical background of <span>Google PageRank</span> algorithm</em>.</div>
 </div>
 </div>
 </div>
