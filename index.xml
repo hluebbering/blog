@@ -6,7 +6,16 @@
     <description>Recent content on Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Algebra Methods in SymPy</title>
+      <link>https://hluebbering.github.io/2021/04/27/linear-algebra-using-sympy/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hluebbering.github.io/2021/04/27/linear-algebra-using-sympy/</guid>
+      <description>Singular Value DecompositionsTheorem (The Singular Value Decomposition).  Let \(A\) be an \(m \times n\) matrix with rank \(r\). Let \(D\) be the \(r \times r\) diagonal matrix where the diagonal entries are the nonzero singular values of \(A\) in decreasing order \(\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r \gt 0\). Let \(\Sigma\) be the \(m \times n\) matrix that has \(D\) in the upper left corner and zero everywhere else.</description>
+    </item>
+    
     <item>
       <title>Google&#39;s PageRank</title>
       <link>https://hluebbering.github.io/2021/04/19/googles-pagerank/</link>
@@ -25,6 +34,16 @@
       <guid>https://hluebbering.github.io/2021/01/10/sequences-and-series-in-python/</guid>
       <description>Convergence of a Sequence Definition. (Sequence Convergence)  A sequence \((a_n)\) converges to a real number \(a\) if, for every positive number \(\epsilon\), there exists an \(N \in \mathbb N\) such that whenever \(n \geq N\) it follows that \(\left|a_n − a\right| \lt \epsilon\).
 In the following, we will determine whether a given sequence converges to a certain limit, and then we’ll use Python to illustrate the sequence graphically.</description>
+    </item>
+    
+    <item>
+      <title>Phase Plane Analysis in R</title>
+      <link>https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/</link>
+      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/</guid>
+      <description>Fixed Points and Phase PortraitsIn the following, we use PhaseR, an R package for phase plane analysis of one and two-dimensional autonomous ODE systems [1]. The package uses stability analysis to classify equilibrium points.
+Definition.  Equilibrium points of an autonomous ODE are defined at \(x^*=0\) such that \(f(x^*)=0\). Beginning at a point \(x^*\) such that \(f(x^*)=0\), the system, if unperturbed, will remain at \(x^*\). Hence, these points determine the long-term behavior of a differential equation.</description>
     </item>
     
     <item>

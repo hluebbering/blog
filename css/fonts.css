@@ -5,8 +5,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Ribeye+Marrow&family=Roboto&display=swap');
+@font-face {
+    font-family: 'didone_room_numbersregular';
+    src: url('didoneroomnumbers-webfont.woff2') format('woff2'),
+         url('didoneroomnumbers-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
-
+}
 
 body {
   font-family: "Times New Roman", Times, serif;

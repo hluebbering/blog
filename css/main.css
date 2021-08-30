@@ -29,7 +29,10 @@ p code {
 
 
 body ul{
-  font-size: 12pt;
+  font-size: 11pt;
+}
+body ol{
+  font-size: 11pt;
 }
 
 html {
@@ -101,11 +104,11 @@ html {
 }
 
 .content {
-  /*max-width: 75%;*/
+  /*max-width: 75%;
+  font-size: 11px;*/
   max-width: 800px;
   margin: 40px auto 10px;
   padding: 0 15px;
-  font-size: 16px;
   line-height: 1.6em;
   color: #333;
 }
@@ -132,23 +135,26 @@ html {
   color: #fff
 }
 
-.article-content p {
-  /*margin: 15px 0 25px;*/
+.article-content a {
+  font-size: 11pt;
+  font-family: 'didone_room_numbersregular';
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  font-weight: 500;
+}
+span.citation {
+  color: black;
+  font-weight: 200;
 }
 
-.article-content a {
-  text-decoration: none;
-  color: inherit;
-  border-bottom: 3px solid #CBF8DF;
-  box-shadow: inset 0 -4px 0 #CBF8DF;
-  background: transparent;
-  transition: background 150ms ease;
-}
+/*font-family: 'Ribeye Marrow', cursive;
+font-family: 'Roboto', sans-serif;
 
 .article-content a:hover,
 .article-content a:focus {
   background: #CBF8DF;
-}
+}*/
 
 .article-content hr {
   margin: 50px auto;
@@ -279,7 +285,7 @@ html {
   }
 
   .content {
-    font-size: 19px;
+    font-size: 16px;
     line-height: 1.8;
   }
 
@@ -382,33 +388,31 @@ h2 {
 h3 {
   /*font-family: 'Crimson Pro', serif;*/
   font-family: 'Noto Serif TC', serif;
-  font-size: 0.9em !important;
+  font-size: 0.96em !important;
   color: #1f3e5a;
   margin-block-start: 1em;
   margin-block-end: 1em;
 }
 h4 {
   font-family: 'Noto Serif TC', serif;
-  font-size: 0.75em !important;
-  color: #5643fd;
-  margin-block-start: 1.4em;
-  margin-block-end: 0;
+  font-size: 0.8em !important;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  font-weight: bold;
   
 }
 h5 {
-  /*color:#8FBC8F;
-  text-shadow: #9CCCB8;*/
-  color: #281c3c;
-  font-family: 'Crimson Pro', serif;
-  font-size: 0.7em;
-  margin-block-start: 1em;
-  margin-block-end: 0;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.7em !important;
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+  font-weight: bold;
 }
 
 body {
   font-family: "Times New Roman", Times, serif;
   /*margin: 30.6px;*/
-  font-size: 12pt;
+  font-size: 11pt;
   color: black;
   margin: 0;
   padding: 0;
@@ -421,12 +425,20 @@ body {
 }
 
 p {
-   font-size: 12pt;
+   font-size: 11pt;
    padding: 1.4px;
    line-height: 1.5em;
    color: black;
    margin-block-start: 0.5em;
    margin-block-end: 0.5em;
+   font-family: "Times New Roman", Times, serif;
+}
+
+p.caption {
+  font-size: 9.6pt;
+  color: black;
+  font-family: PT Sans Caption;
+  font-weight: 500;
 }
 
 .a1 {
@@ -490,7 +502,7 @@ a {
 
 
 .solutions {
-  padding: 0;
+  padding: 4px;
   margin: auto;
   width: 94%;
 }
@@ -509,9 +521,17 @@ a {
 
 .sp0 {
   font-family: Apercu;
-  color:#ffcb69;
+  color:#FDB05A;
   font-size: 16pt;
   padding: 0;
+  font-weight: bold;
+}
+
+.lp0 {
+  font-family: Apercu;
+  color:#FDB05A;
+  font-size:12.2pt;
+  padding: 1px;
 }
 
 .sp1 {
@@ -548,7 +568,12 @@ a {
   font-size: 16pt;
   padding: 1px;
 }
-
+.lp30 {
+  font-family: Apercu;
+  color:#EC4E8D;
+  font-size:12.2pt;
+  padding: 1px;
+}
 .lp3 {
   font-family: Apercu;
   color:#fc89ac;
@@ -843,7 +868,8 @@ pre[class*="language-"] {
 
 .hljs-number, 
 span.hljs-number {
-  color: #275fe4;
+  /*color: #275fe4;*/
+  color: seagreen;
   font-weight: 500;
 }
 
@@ -912,8 +938,8 @@ pre code {
 }
 
 .token.punctuation, .token.operator {
-  color: black;
-  font-weight: 400;
+  color: darkslategray;
+  font-weight: 500;
 }
 
 .hljs {
@@ -946,12 +972,12 @@ span.hljs-string,
 
 
 ol {
-  font-size: 12pt;
+  font-size: 11pt;
   color: #1E2852;
 }
 
 ul {
-  font-size: 12pt;
+  font-size: 11pt;
   color: #3c1c31;
 }
 
@@ -980,3 +1006,137 @@ strong, b {
   font-family: Apercu;
   font-weight: 600;
 }
+
+/*-------------------------------------*/ 
+
+
+.pr {
+  font-family: Apercu;
+  color:black;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 12pt;
+}
+
+.pr0 {
+  font-family: Apercu;
+  color:#FDB05A;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+
+.pr1 {
+  font-family: Apercu;
+  color:#FF9173;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+
+.pr2 {
+  font-family: Apercu;
+  color:#FF6161;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr30 {
+  font-family: Apercu;
+  color:#EC4E8D;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr3 {
+  font-family: Apercu;
+  color:#fc89ac;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr32 {
+  font-family: Apercu;
+  color:#F347C0;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+
+.pr4 {
+  font-family: Apercu;
+  color:#9536B3;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+
+.pr5 {
+  font-family: Apercu;
+  color:#884FD1;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr6 {
+  font-family: Apercu;
+  color:#7B68EE;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr7 {
+  font-family: Apercu;
+  color:#4682b4;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr8 {
+  font-family: Apercu;
+  color:#00b7eb;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr9 {
+  font-family: Apercu;
+  color:#38BDBB;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr10 {
+  font-family: Apercu;
+  color:#5CBD92;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr11 {
+  font-family: Apercu;
+  color:#8fbc8f;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+.pr12 {
+  font-family: Apercu;
+  color:#008080;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  font-size: 13.3pt;
+}
+
+/*JUSTIN BIEBER JUSTICE COLORS -- #47ca9f #aed17b #34976b #309ea4 #20696f */
+
+/*-------------------------------------*/ 
+
+
+
+table {
+  -webkit-border-vertical-spacing: 0;
+  -webkit-border-horizontal-spacing: 0;
+
+}
+
