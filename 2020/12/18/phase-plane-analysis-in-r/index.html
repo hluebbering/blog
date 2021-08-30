@@ -81,22 +81,22 @@
 <div id="linearization" class="section level3">
 <h3>Linearization</h3>
 <p>Next, we will show how to find the eigenvalues <span class="math inline">\(\mathbf{\lambda}\)</span> for a set of fixed points. Fixed Points <span class="math inline">\(\mathbf{(x^{\star}, y^{\star})}\)</span> occur for <span class="math inline">\(\mathrm{\dot x = 0}\)</span> and <span class="math inline">\(\mathrm{\dot y = 0}\)</span>.</p>
-<div class="solutions">
-<p><span class="pr2">Step 1. </span> Substitute <span class="math inline">\(\mathrm{\dot x}\)</span> and <span class="math inline">\(\mathrm{\dot y}\)</span> into the following <strong>Jacobian Matrix:</strong> <span class="math inline">\(\mathit{{\color{redhot}\mathbf{A}} \equiv }\small\begin{pmatrix} \mathrm{\frac{\partial{\dot x}}{\partial x}} &amp; \mathrm{\frac{\partial \dot x}{\partial y}} \\\mathrm{\frac{\partial \dot y}{\partial x}} &amp;\mathrm{\frac{\partial \dot y}{\partial y}}\end{pmatrix}\)</span></p>
-<p><span class="pr2">Step 2. </span> Evaluate matrix <span class="math inline">\(\mathbf{A}\)</span> at any fixed point <span class="math inline">\(\mathbf(x^{\star}, y^{\star})\)</span>.</p>
-<p><span class="pr2">Step 3. </span> The eigenvalue <span class="math inline">\(\mathbf{\lambda}\)</span> for the fixed point is calculated with the characteristic equation <span class="math inline">\(\mathrm{det}\mathit{(A-\lambda I)}=0\)</span>.</p>
+<div class="b3">
+<p><span class="lp3">Step 1. </span> Substitute <span class="math inline">\(\mathrm{\dot x}\)</span> and <span class="math inline">\(\mathrm{\dot y}\)</span> into the following <strong>Jacobian Matrix:</strong> <span class="math inline">\(\mathit{{\color{redhot}\mathbf{A}} \equiv }\small\begin{pmatrix} \mathrm{\frac{\partial{\dot x}}{\partial x}} &amp; \mathrm{\frac{\partial \dot x}{\partial y}} \\\mathrm{\frac{\partial \dot y}{\partial x}} &amp;\mathrm{\frac{\partial \dot y}{\partial y}}\end{pmatrix}\)</span></p>
+<p><span class="lp3">Step 2. </span> Evaluate matrix <span class="math inline">\(\mathbf{A}\)</span> at any fixed point <span class="math inline">\(\mathbf(x^{\star}, y^{\star})\)</span>.</p>
+<p><span class="lp3">Step 3. </span> The eigenvalue <span class="math inline">\(\mathbf{\lambda}\)</span> for the fixed point is calculated with the characteristic equation <span class="math inline">\(\mathrm{det}\mathit{(A-\lambda I)}=0\)</span>.</p>
 <p><span class="math display">\[\small\begin{align}&amp;{\color{pinky2}\mathbf{A}_{\small\mathrm{(x^{\star}, y^{\star})}}}\mathbf{-}\begin{bmatrix}\lambda &amp; 0 \\ 0 &amp; \lambda \end{bmatrix} = 0 &amp; \\ &amp;\begin{bmatrix} a_1 - \lambda &amp; a_2 \\ a_3 &amp; a_4 -\lambda \end{bmatrix} = 0 &amp; \\ &amp;(a_1 - \lambda) \times (a_4 -\lambda) - (a_2) \times (a_3) = 0 \end{align}\]</span></p>
-<p><span class="pr2">Step 4. </span> The roots of the above equation can be calculated as <span class="math inline">\(\small{\bf\color{pinky}\lambda} = \mathrm{\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}\)</span></p>
+<p><span class="lp3">Step 4. </span> The roots of the above equation can be calculated as <span class="math inline">\(\small{\bf\color{pinky}\lambda} = \mathrm{\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}\)</span></p>
 </div>
 </div>
 <div id="types-of-fixed-points" class="section level3">
 <h3>Types of Fixed Points</h3>
 <div class="b3">
-<p><span class="pr3">Stable Node:</span> The fixed point will be a stable node if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are real numbers with the same sign: <span class="math inline">\(\lambda_{1,2} &gt; 0\)</span> or <span class="math inline">\(\lambda_{1,2} &lt; 0\)</span>.</p>
-<p><span class="pr3">Saddle Node:</span> The fixed point will be a saddle point if one eigenvalue <span class="math inline">\(\lambda_1\)</span> is greater than 0, and the other eigenvalue <span class="math inline">\(\lambda_2\)</span> is less than 0.</p>
-<p><span class="pr3">Center Node:</span> The origin of the system will form a center if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are pure imaginary. The fixed point will be an outgoing spirals if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are complex with positive real parts. The fixed point will be oscillating in nature if the eigenvalues <span class="math inline">\(\lambda_i\)</span> change from real to imaginary.</p>
-<p><span class="pr3">Isolated:</span> The origin will be an isolated fixed point if the determinant <span class="math inline">\(\nabla\)</span> comes out to be 0.</p>
-<p><span class="pr3">Unstable Star:</span> The fixed point will be a unstable star if there is only one eigenvalue <span class="math inline">\(\lambda_1\)</span> for the system.</p>
+<p><span class="lp4">Stable Node:</span> The fixed point will be a stable node if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are real numbers with the same sign: <span class="math inline">\(\lambda_{1,2} &gt; 0\)</span> or <span class="math inline">\(\lambda_{1,2} &lt; 0\)</span>.</p>
+<p><span class="lp4">Saddle Node:</span> The fixed point will be a saddle point if one eigenvalue <span class="math inline">\(\lambda_1\)</span> is greater than 0, and the other eigenvalue <span class="math inline">\(\lambda_2\)</span> is less than 0.</p>
+<p><span class="lp4">Center Node:</span> The origin of the system will form a center if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are pure imaginary. The fixed point will be an outgoing spirals if both eigenvalues <span class="math inline">\(\lambda_{1,2}\)</span> are complex with positive real parts. The fixed point will be oscillating in nature if the eigenvalues <span class="math inline">\(\lambda_i\)</span> change from real to imaginary.</p>
+<p><span class="lp4">Isolated:</span> The origin will be an isolated fixed point if the determinant <span class="math inline">\(\nabla\)</span> comes out to be 0.</p>
+<p><span class="lp4">Unstable Star:</span> The fixed point will be a unstable star if there is only one eigenvalue <span class="math inline">\(\lambda_1\)</span> for the system.</p>
 </div>
 <p> </p>
 <hr />
@@ -104,7 +104,7 @@
 <div id="equilibrium-points-and-stability-example" class="section level3">
 <h3>Equilibrium Points and Stability Example</h3>
 <p><strong><span class="sp12">1. </span> Find the equilibrium points to the ODE <span class="math inline">\(\color{bluemoon} \frac{dy}{dt}=4-y^2\)</span></strong></p>
-<div class="solutions">
+<div class="b3">
 <p><span class="math display">\[\begin{align}\frac{dy}{dt} &amp;= 4-y^2 = 0 \\0 &amp; = (2-y)(2+y) \\ &amp;\Rightarrow \ \  \color{purpley}y \equiv -2,2\end{align}\]</span></p>
 </div>
 <p>If for every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span> such that whenever <span class="math inline">\(|y(0)-y_*|&lt;\delta\)</span> then <span class="math inline">\(|y(t)-y_*|&lt;\epsilon\)</span> for all <span class="math inline">\(t\)</span>. Hence, a fixed point is stable if a system placed a small distance away from the fixed point continues to remain close to the fixed point. And a fixed point is unstable if a system placed a small perturbation away from the fixed point causes the solution to diverge. There are 2 methods for determining the stability of a fixed point: Phase Portrait Analysis or the Taylor Series Expansion.</p>
