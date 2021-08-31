@@ -72,7 +72,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
 <div id="fixed-points-and-phase-portraits" class="section level2">
 <h2>Fixed Points and Phase Portraits</h2>
-<p>In the following, we use <em>PhaseR</em>, an R package for phase plane analysis of one and two-dimensional autonomous ODE systems <span class="citation">[<a href="#ref-grayling2014" role="doc-biblioref">1</a>]</span>. The package uses stability analysis to classify equilibrium points.</p>
+<p>In the following, we use the phaseR package for phase plane analysis of one and two-dimensional autonomous ODE systems <span class="citation">[<a href="#ref-grayling2014" role="doc-biblioref">1</a>]</span>. The package uses stability analysis to classify equilibrium points.</p>
 <div class="b3">
 <p><span class="lp1">Definition. </span> Equilibrium points of an autonomous ODE are defined at <span class="math inline">\(x^*=0\)</span> such that <span class="math inline">\(f(x^*)=0\)</span>. Beginning at a point <span class="math inline">\(x^*\)</span> such that <span class="math inline">\(f(x^*)=0\)</span>, the system, if unperturbed, will remain at <span class="math inline">\(x^*\)</span>. Hence, these points determine the long-term behavior of a differential equation.</p>
 <p><span class="lp2">Definition. </span> A phase portrait is defined as the geometrical representation of the trajectories of the dynamical system in the phase plane of the system equation. Every set of the initial condition is represented by a different curve or point in the phase plane.</p>
@@ -82,7 +82,7 @@
 <h3>Linearization</h3>
 <p>Next, we will show how to find the eigenvalues <span class="math inline">\(\mathbf{\lambda}\)</span> for a set of fixed points. Fixed points <span class="math inline">\(\mathbf{(x^{\star}, y^{\star})}\)</span> occur for <span class="math inline">\(\mathrm{\dot x = 0}\)</span> and <span class="math inline">\(\mathrm{\dot y = 0}\)</span>.</p>
 <div class="solutions">
-<p><span class="pr2">Step 1. </span> Substitute <span class="math inline">\(\mathrm{\dot x}\)</span> and <span class="math inline">\(\mathrm{\dot y}\)</span> into the following <em>jacobian matrix:</em></p>
+<p><span class="pr2">Step 1. </span> Substitute <span class="math inline">\(\mathrm{\dot x}\)</span> and <span class="math inline">\(\mathrm{\dot y}\)</span> into the following <strong>Jacobian Matrix</strong>:</p>
 <p><span class="math display">\[\mathit{{\color{redhot}\mathbf{A}} \equiv }\small\begin{pmatrix} \mathrm{\frac{\partial{\dot x}}{\partial x}} &amp; \mathrm{\frac{\partial \dot x}{\partial y}} \\\mathrm{\frac{\partial \dot y}{\partial x}} &amp;\mathrm{\frac{\partial \dot y}{\partial y}}\end{pmatrix}\]</span></p>
 <p><span class="pr2">Step 2. </span> Evaluate matrix <span class="math inline">\(\mathbf{A}\)</span> at any fixed point <span class="math inline">\(\mathbf(x^{\star}, y^{\star})\)</span>.</p>
 <p><span class="pr2">Step 3. </span> The eigenvalue <span class="math inline">\(\mathbf{\lambda}\)</span> for the fixed point is calculated with the characteristic equation <span class="math inline">\(\mathrm{det}\mathit{(A-\lambda I)}=0\)</span>.</p>
@@ -104,9 +104,7 @@
 <div id="equilibrium-points-and-stability-example" class="section level3">
 <h3>Equilibrium Points and Stability Example</h3>
 <p><strong><span class="sp7">1. </span></strong> Find the equilibrium points to the following: <span class="math inline">\(\bf \color{bluemoon} \frac{dy}{dt}=4-y^2\)</span></p>
-<div class="b3">
-<p><span class="math display">\[\mathit{\begin{align}\mathrm{\tfrac{dy}{dt}} &amp;= 4-y^2 = 0 \\0 &amp; = (2-y)(2+y) \\ {\color{purpley}\star} \ \color{bluemoon}y &amp;\equiv -2, \ 2\end{align}}\]</span></p>
-</div>
+<p><span class="math display">\[\mathit{\begin{align}\mathrm{\tfrac{dy}{dt}} &amp;= 4-y^2 = 0 \\0 &amp; = (2-y)(2+y) \\ {\color{bluemoon}\star} \ \color{bluemoon}y &amp;\equiv -2, \ 2\end{align}}\]</span></p>
 <div class="b3">
 <p><span class="lp7">Definition. </span> If for every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span> such that whenever <span class="math inline">\(|y(0)-y_*|&lt;\delta\)</span> then <span class="math inline">\(|y(t)-y_*|&lt;\epsilon\)</span> for all <span class="math inline">\(t\)</span>. Hence, a fixed point is stable if a system placed a small distance away from the fixed point continues to remain close to the fixed point. And a fixed point is unstable if a system placed a small perturbation away from the fixed point causes the solution to diverge. There are 2 methods for determining the stability of a fixed point: Phase Portrait Analysis or the Taylor Series Expansion.</p>
 <p><span class="lp10">Definition. </span> A phase portrait plots the derivative <span class="math inline">\(\dot x\)</span> against the dependent variable <span class="math inline">\(x\)</span>. We can find the equilibrium points at locations where <span class="math inline">\(f\)</span> crosses the <span class="math inline">\(\mathcal x-\text{axis}\)</span>.</p>
@@ -138,53 +136,35 @@ Figure 1: Phase Portrait for <span class="math inline">\(\frac{dy}{dt}=4-y^2\)</
 <p>In the following, we define the parameters for satisfying the studies given conditions as <span class="math inline">\(c_1=16\)</span>, <span class="math inline">\(c_2 = 12\)</span>, <span class="math inline">\(c_3=15\)</span>, <span class="math inline">\(c_4=3\)</span>, <span class="math inline">\(a_e = 1.3\)</span>, <span class="math inline">\(\theta_e=4\)</span>, <span class="math inline">\(a_i=2\)</span>, <span class="math inline">\(\theta_i = 3.7\)</span>, <span class="math inline">\(r_e=1\)</span> and <span class="math inline">\(r_i=1\)</span>. We can determine a steady-state solution by the intersection of the nullclines as follows.</p>
 <p> </p>
 <pre class="r"><code>se &lt;- function(x){
-  ae=1.3
-  theta_e=4
+  ae = 1.3
+  theta_e = 4
   1/(1+exp(-ae*(x-theta_e)))
 }
 
 si &lt;- function(x){
-  ai=2
-  theta_i= 3.7
+  ai = 2
+  theta_i = 3.7
   1/(1+exp(-ai*(x-theta_i)))
 }</code></pre>
-<pre class="r"><code>WilsonCowan2 &lt;- function(t, y, parameters) {
-  # couplings
-  c1 = 16
+<pre class="r"><code>WilsonCowan &lt;- function(t, y, parameters) {
+  c1 = 16 # couplings
   c2 = 12
   c3 = 15
   c4 = 3
   
-  # Refractory periods
-  rE = 1
+  rE = 1 # refractory periods
   rI = 1
   
-  # external inputs
-  P = 1.25
+  P = 1.25 # external inputs
   Q = 0
-  
   ki=0.825
   ke=0.88
   I &lt;- y[1]
   E &lt;- y[2]
-  dy &lt;- c(
-     -I + (ki - rI * I) * si(c3 * E - c4 * I + Q),
-     -E + (ke - rE * E) * se(c1 * E - c2 * I + P))
+  dy &lt;- c(-I + (ki - rI * I) * si(c3 * E - c4 * I + Q),
+          -E + (ke - rE * E) * se(c1 * E - c2 * I + P))
   list(dy)
 }</code></pre>
-<pre class="r"><code>example4_flowField  &lt;- flowField(WilsonCowan2,
-                                 xlim = c(-0.01, .425),
-                                 ylim = c(0, .5),
-                                 add  = FALSE,
-                                 ylab = TeX(&quot;$E$&quot;),
-                                 xlab= TeX(&quot;$I$&quot;),
-                                 frac=1)
-grid()
-example4_nullclines &lt;- nullclines(WilsonCowan2,
-                                  xlim = c(-0.01, .425),
-                                  ylim = c(0, .5),
-                                  lty = 2, lwd = 2,
-                                  col=c(&quot;lightseagreen&quot;,&quot;aquamarine4&quot;))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
 <img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-6-1.png" alt="Phase Plane Analysis. Determine the steady-state solution by the nullclines' intersection." width="400" />
 <p class="caption">
@@ -192,6 +172,21 @@ Figure 2: Phase Plane Analysis. Determine the steady-state solution by the nullc
 </p>
 </div>
 <p>In the phase plane, the limit cycle is an isolated closed orbit, where “closed” means the periodicity of movement, and “isolated” means the limit of motion, where nearby trajectories converge or deviate. We can alter our initial values of <span class="math inline">\(E_0\)</span> and <span class="math inline">\(I_0\)</span> to obtain different paths in the phase space.</p>
+<pre class="r"><code>WC_flowField  &lt;- flowField(WilsonCowan,
+                           xlim = c(-0.01, .425),
+                           ylim = c(0, .5),
+                           add  = FALSE)
+
+WC_nullclines &lt;- nullclines(WilsonCowan,
+                            xlim = c(-0.01, .425),
+                            ylim = c(0, .5),
+                            lty = 2, lwd = 2)
+
+y0 &lt;- matrix(c(0.1,0.3, 0,0, 0.1,0.2), 3, 2, byrow = TRUE)
+WC_trajectory &lt;- trajectory(WilsonCowan,
+                            y0 = y0,
+                            tlim = c(0, 100),
+                            add=TRUE)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:Final"></span>
 <img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/Final-1.png" alt="Phase Plane Analysis showing limit cycle trajectory in response to constant simulation $P=1.25$. Dashed lines are nullclines." width="400" />
 <p class="caption">
@@ -203,14 +198,8 @@ Figure 3: Phase Plane Analysis showing limit cycle trajectory in response to con
 <li>Trajectories near the equilibrium point are pushed further away from the equilibrium.</li>
 <li>Trajectories far from the equilibrium point move closer toward the equilibrium.</li>
 </ul>
-<p>We established the resting state <span class="math inline">\(E=0, I=0\)</span> to be stable in the absence of an outside force. Therefore, the neural population only exhibits limit cycle activity in response to a constant external input (P or Q). All in all, the premise of Theorem 3 is that there is only one steady-state, and it must be near the inflection point for a limit cycle to exist. Therefore, if we study the limit behavior as a function of <span class="math inline">\(P\)</span>, where <span class="math inline">\(Q=0\)</span>, then it follows that:</p>
-<ul>
-<li>There is a threshold value of P, and below this threshold, the limit cycle activity cannot occur.</li>
-<li>There is a higher value of P, and above this bound, the system’s limit cycle activity will cease.</li>
-<li>Within the range defined above, both the limit cycle frequency and the average value of <span class="math inline">\(E(t)\)</span> increases monotonically with respect to <span class="math inline">\(P\)</span>.</li>
-</ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
-<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-9-1.png" alt="$I(t)$ and $E(t)$ for limit cycle shown above. The limit cycle depends on the value of $P$, i.e. $Q$ being set equal to zero." width="350" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/index_files/figure-html/unnamed-chunk-10-1.png" alt="$I(t)$ and $E(t)$ for limit cycle shown above. The limit cycle depends on the value of $P$, i.e. $Q$ being set equal to zero." width="350" />
 <p class="caption">
 Figure 4: <span class="math inline">\(I(t)\)</span> and <span class="math inline">\(E(t)\)</span> for limit cycle shown above. The limit cycle depends on the value of <span class="math inline">\(P\)</span>, i.e. <span class="math inline">\(Q\)</span> being set equal to zero.
 </p>
