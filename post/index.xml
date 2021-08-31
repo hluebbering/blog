@@ -36,15 +36,5 @@
 In the following, we will determine whether a given sequence converges to a certain limit, and then we’ll use Python to illustrate the sequence graphically.</description>
     </item>
     
-    <item>
-      <title>Phase Plane Analysis in R</title>
-      <link>https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/</link>
-      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hluebbering.github.io/2020/12/18/phase-plane-analysis-in-r/</guid>
-      <description>Fixed Points and Phase PortraitsIn the following, we use the phaseR package for phase plane analysis of one and two-dimensional autonomous ODE systems [1]. The package uses stability analysis to classify equilibrium points.
-Definition.  Equilibrium points of an autonomous ODE are defined at \(x^*=0\) such that \(f(x^*)=0\). Beginning at a point \(x^*\) such that \(f(x^*)=0\), the system, if unperturbed, will remain at \(x^*\). Hence, these points determine the long-term behavior of a differential equation.</description>
-    </item>
-    
   </channel>
 </rss>

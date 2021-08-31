@@ -12,14 +12,14 @@
   font-size: 13.5pt;
   font-family: 'Apercu';
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .prf {
   font-size: 13.5pt;
   font-family: 'Apercu';
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 p code {
@@ -104,11 +104,11 @@ html {
 }
 
 .content {
-  /*max-width: 75%;
-  font-size: 11px;*/
+  /*max-width: 75%;*/
   max-width: 800px;
   margin: 40px auto 10px;
   padding: 0 15px;
+  font-size: 16px;
   line-height: 1.6em;
   color: #333;
 }
@@ -285,7 +285,7 @@ font-family: 'Roboto', sans-serif;
   }
 
   .content {
-    font-size: 16px;
+    font-size: 19px;
     line-height: 1.8;
   }
 
@@ -977,17 +977,17 @@ ol {
 }
 
 ul {
-  font-size: 10pt;
+  font-size: 11pt;
   color: #3c1c31;
 }
 
 em {
-  font-size: 11pt;
+  font-size: 12pt;
   color: #3c1c31;
 }
   
 strong, b {
-  font-size: 11pt;
+  font-size: 12pt;
   color: #3c1c31;
 }
 
@@ -1004,7 +1004,7 @@ strong, b {
   color: black;
   font-variant: small-caps;
   font-family: Apercu;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /*-------------------------------------*/ 
@@ -1014,7 +1014,7 @@ strong, b {
   font-family: Apercu;
   color:black;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12pt;
 }
 
@@ -1022,7 +1022,7 @@ strong, b {
   font-family: Apercu;
   color:#FDB05A;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 
@@ -1030,7 +1030,7 @@ strong, b {
   font-family: Apercu;
   color:#FF9173;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 
@@ -1038,28 +1038,28 @@ strong, b {
   font-family: Apercu;
   color:#FF6161;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr30 {
   font-family: Apercu;
   color:#EC4E8D;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr3 {
   font-family: Apercu;
   color:#fc89ac;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr32 {
   font-family: Apercu;
   color:#F347C0;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 
@@ -1067,7 +1067,7 @@ strong, b {
   font-family: Apercu;
   color:#9536B3;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 
@@ -1075,56 +1075,56 @@ strong, b {
   font-family: Apercu;
   color:#884FD1;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr6 {
   font-family: Apercu;
   color:#7B68EE;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr7 {
   font-family: Apercu;
   color:#4682b4;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr8 {
   font-family: Apercu;
   color:#00b7eb;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr9 {
   font-family: Apercu;
   color:#38BDBB;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr10 {
   font-family: Apercu;
   color:#5CBD92;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr11 {
   font-family: Apercu;
   color:#8fbc8f;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 .pr12 {
   font-family: Apercu;
   color:#008080;
   font-variant: all-small-caps;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13.3pt;
 }
 
