@@ -2,36 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Data Science Blog</title>
-    <link>https://hluebbering.github.io/post/</link>
+    <link>https://hluebbering.github.io/posts/post/</link>
     <description>Recent content in Posts on Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/posts/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probability Practice Problems</title>
+      <link>https://hluebbering.github.io/posts/2021/09/10/probability/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hluebbering.github.io/posts/2021/09/10/probability/</guid>
+      <description>Exercises from the book Introduction to Probability by Joseph K. Blitzstein and Jessica Hwang © Chapman &amp;amp; Hall/CRC Press, 2014.1 
+Conditional Probability and Bayes’ RuleProblem 1.1An email filters spam by scanning commonly occurring words in spam. Suppose that \(70\%\) of email is spam. In \(10\%\) of the spam emails, the expression “fast cash” appears, whereas this phrase only appears in \(1\%\) of non-spam emails.</description>
+    </item>
+    
     <item>
       <title>Linear Algebra Methods in SymPy</title>
-      <link>https://hluebbering.github.io/2021/04/27/linear-algebra-using-sympy/</link>
+      <link>https://hluebbering.github.io/posts/2021/04/27/linear-algebra-using-sympy/</link>
       <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hluebbering.github.io/2021/04/27/linear-algebra-using-sympy/</guid>
+      <guid>https://hluebbering.github.io/posts/2021/04/27/linear-algebra-using-sympy/</guid>
       <description>Singular Value DecompositionsTheorem (The Singular Value Decomposition).  Let \(A\) be an \(m \times n\) matrix with rank \(r\). Let \(D\) be the \(r \times r\) diagonal matrix where the diagonal entries are the nonzero singular values of \(A\) in decreasing order \(\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r \gt 0\). Let \(\Sigma\) be the \(m \times n\) matrix that has \(D\) in the upper left corner and zero everywhere else.</description>
     </item>
     
     <item>
       <title>Google&#39;s PageRank</title>
-      <link>https://hluebbering.github.io/2021/04/19/googles-pagerank/</link>
+      <link>https://hluebbering.github.io/posts/2021/04/19/googles-pagerank/</link>
       <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hluebbering.github.io/2021/04/19/googles-pagerank/</guid>
+      <guid>https://hluebbering.github.io/posts/2021/04/19/googles-pagerank/</guid>
       <description>PageRank as a Markov Chain Sergy Brin and Larry Page developed PageRank as a way to rank the importance of a webpage on the internet based on the counted number of links to it. For example, consider the following internet:
  Figure 1: PageRank as a Markov Chain.  \(\require{color}\definecolor{teall}{RGB}{58, 171, 174} \definecolor{bluemoon}{RGB}{62, 71, 125} \definecolor{redhot}{RGB}{255, 145, 115} \definecolor{periwinkle}{RGB}{159, 160, 255} \definecolor{purpley}{RGB}{31, 35, 255} \definecolor{gween}{RGB}{73, 175, 129} \definecolor{pinky}{RGB}{251, 109, 134} \definecolor{pinky2}{RGB}{241, 67, 192} \definecolor{maglav}{RGB}{241, 167, 254}\)</description>
     </item>
     
     <item>
       <title>Sequences and Series in Python</title>
-      <link>https://hluebbering.github.io/2021/01/10/sequences-and-series-in-python/</link>
+      <link>https://hluebbering.github.io/posts/2021/01/10/sequences-and-series-in-python/</link>
       <pubDate>Sun, 10 Jan 2021 21:13:14 -0500</pubDate>
       
-      <guid>https://hluebbering.github.io/2021/01/10/sequences-and-series-in-python/</guid>
+      <guid>https://hluebbering.github.io/posts/2021/01/10/sequences-and-series-in-python/</guid>
       <description>Convergence of a Sequence Definition. (Sequence Convergence)  A sequence \((a_n)\) converges to a real number \(a\) if, for every positive number \(\epsilon\), there exists an \(N \in \mathbb N\) such that whenever \(n \geq N\) it follows that \(\left|a_n − a\right| \lt \epsilon\).
 In the following, we will determine whether a given sequence converges to a certain limit, and then we’ll use Python to illustrate the sequence graphically.</description>
     </item>

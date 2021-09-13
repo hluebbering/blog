@@ -137,7 +137,7 @@ html {
 
 .article-content a {
   font-size: 11pt;
-  font-family: 'didone_room_numbersregular';
+  /*font-family: 'didone_room_numbersregular';*/
   text-decoration: none;
   color: black;
   text-align: center;
@@ -157,7 +157,7 @@ font-family: 'Roboto', sans-serif;
 }*/
 
 .article-content hr {
-  margin: 50px auto;
+  margin: 30px auto;
   height: 1px;
   overflow: hidden;
   border: none;
@@ -388,10 +388,11 @@ h2 {
 h3 {
   /*font-family: 'Crimson Pro', serif;*/
   font-family: 'Noto Serif TC', serif;
-  font-size: 0.96em !important;
+  font-size: 0.94em !important;
   color: #1f3e5a;
   margin-block-start: 1em;
   margin-block-end: 1em;
+  margin-bottom: 1px;
 }
 h4 {
   font-family: 'Noto Serif TC', serif;
@@ -1012,7 +1013,7 @@ strong, b {
 
 .pr {
   font-family: Apercu;
-  color:black;
+  color:#1f3e5a;
   font-variant: all-small-caps;
   font-weight: 600;
   font-size: 12pt;
@@ -1139,4 +1140,41 @@ table {
   -webkit-border-horizontal-spacing: 0;
 
 }
+
+
+.example1 {
+    background-color: rgb(245, 245, 245);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5em;
+}
+
+.example2 {
+    background-color: mintcream;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5em;
+}
+
+.definition1 {
+    background-color: #F5FAFF;
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+}
+
+
+
+.csl-entry{
+  font-size: 11pt;
+}
+
+
 
