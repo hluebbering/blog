@@ -1,0 +1,163 @@
+---
+title: "Linear Algebra Methods in SymPy"
+author: "Hannah Luebbering"
+date: '2021-04-27'
+slug: linear-algebra-using-sympy
+# categories: ["Python"]
+# tags: ["Python", "sympy"]
+header-includes:
+  - \usepackage{xfrac}
+bibliography: refs.bib
+csl: journal-of-mathematical-physics.csl
+nocite: '@*'
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<hr />
+<div id="singular-value-decompositions" class="section level2">
+<h2>Singular Value Decompositions</h2>
+<p><span class="lp0">Theorem (The Singular Value Decomposition). </span> Let <span class="math inline">\(A\)</span> be an <span class="math inline">\(m \times n\)</span> matrix with rank <span class="math inline">\(r\)</span>. Let <span class="math inline">\(D\)</span> be the <span class="math inline">\(r \times r\)</span> diagonal matrix where the diagonal entries are the nonzero singular values of <span class="math inline">\(A\)</span> in decreasing order <span class="math inline">\(\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r \gt 0\)</span>. Let <span class="math inline">\(\Sigma\)</span> be the <span class="math inline">\(m \times n\)</span> matrix that has <span class="math inline">\(D\)</span> in the upper left corner and zero everywhere else. Then there exist an <span class="math inline">\(m \times m\)</span> unitary matrix <span class="math inline">\(U\)</span> and an <span class="math inline">\(n \times n\)</span> unitary matrix <span class="math inline">\(V\)</span> such that <span class="math inline">\(A = U \Sigma V^*\)</span></p>
+<p><span class="lp0">Definition (SVD). </span> The factorization <span class="math inline">\(A = U \Sigma V^*\)</span> is called the singular value decomposition (or SVD) of <span class="math inline">\(A\)</span>. The columns of <span class="math inline">\(U\)</span> are called the left singular vectors of <span class="math inline">\(A\)</span>, and the columns of <span class="math inline">\(V\)</span> are called the right singular vectors of <span class="math inline">\(A\)</span>.</p>
+<div id="compute-a-singular-value-decomposition-of-the-following-matrix" class="section level4">
+<h4><span class="sp1">1. </span> Compute a singular value decomposition of the following matrix:</h4>
+</div>
+<div id="a-aequiv-beginbmatrix1--12--2-1-1endbmatrix" class="section level4">
+<h4><span class="lp1"><span class="math inline">\(\;\)</span> (a) </span> <span class="math inline">\(A\equiv \begin{bmatrix}1 &amp; -1\\2 &amp; -2\\-1 &amp; 1\end{bmatrix}\)</span></h4>
+<div class="solutions">
+<p><span class="pr2">Step 1. </span> Find an orthogonal diagonalization of <span class="math inline">\(A^*A\)</span>.</p>
+<p>Here, we find the eigenvalues of <span class="math inline">\(A^*A\)</span> and the corresponding normalized eigenvectors. First we must compute the matrix <span class="math inline">\(A^*A\)</span>, where <span class="math inline">\(A^*\)</span> is the conjugate transpose of <span class="math inline">\(A\)</span>.</p>
+<pre class="language-python"><code>A = Matrix([[1,-1],[2,-2],[-1,1]])
+B = A.H*A</code></pre>
+<p><span class="math inline">\(\displaystyle A^{*}A \equiv\left[\begin{matrix}1 &amp; 2 &amp; -1\\-1 &amp; -2 &amp; 1\end{matrix}\right]\left[\begin{matrix}1 &amp; -1\\2 &amp; -2\\-1 &amp; 1\end{matrix}\right]\equiv \begin{bmatrix}6 &amp; -6\\-6 &amp; 6\end{bmatrix}\)</span></p>
+<p>To get the eigenvalues, we compute the characteristic polynomial.</p>
+<pre class="language-python"><code>p = B.charpoly()
+factor(p.as_expr())</code></pre>
+<p><span class="math inline">\(\mathrm{\mathtt{\large c}}(\lambda) \equiv \det{(\begin{bmatrix}6 - \lambda &amp; -6\\-6 &amp; 6 - \lambda \end{bmatrix})} \equiv \lambda^2 - 12\lambda \equiv \lambda(\lambda-12)\)</span></p>
+<p>So the eigenvalues are <span class="math inline">\(\bf \lambda_1 \equiv 12\)</span> and <span class="math inline">\(\bf \lambda_2 \equiv 0\)</span>. We can also use Sympy’s <code>eigenvects()</code> function to get the eigenvalues <span class="math inline">\(\lambda\)</span> and corresponding eigenspaces <span class="math inline">\(E_\lambda\)</span>.</p>
+<pre class="language-python"><code>eval_1 = ((B.eigenvects())[1])[0]
+eval_2 = ((B.eigenvects())[0])[0]</code></pre>
+<p>The corresponding eigenvectors are can be found by solving</p>
+<p><span class="math inline">\(\begin{align} \begin{bmatrix}6 - 12 &amp; -6 \\ -6 &amp; 6 -12\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix} &amp;\equiv \begin{bmatrix}0 \\ 0\end{bmatrix}, &amp; \begin{bmatrix}6 - 0 &amp; -6 \\ -6 &amp; 6 -0\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix} &amp;\equiv \begin{bmatrix}0 \\ 0\end{bmatrix} \end{align}\)</span></p>
+<p>The solution to the systems are</p>
+<p><span class="math inline">\(\begin{gather}\mathrm{E_{12} = \ker(AA^* − 12I) = Span \begin{bmatrix}-2 \\ 2\end{bmatrix}}, \; \mathrm{E_{0} = \ker(AA^* − 0I) = Span \begin{bmatrix}2 \\ 2\end{bmatrix}} \end{gather}\)</span></p>
+<p>The corresponding normalized eigenvectors are obtained by dividing each vector <span class="math inline">\(\mathbf{v}\)</span> by its length <span class="math inline">\(\parallel \mathbf{v} \parallel\)</span>.</p>
+<pre class="language-python"><code>v_1 = (((B.eigenvects())[1])[2])[0]
+v_1 = v_1/v_1.norm()
+
+v_2 = (((B.eigenvects())[0])[2])[0]
+v_2 = v_2/v_2.norm()</code></pre>
+<p><span class="math inline">\(\displaystyle \mathbf{v}_1 \equiv\left[\begin{matrix} \frac{-\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}\end{matrix}\right], \; \mathbf{v}_2 \equiv\left[\begin{matrix}\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}\end{matrix}\right]\)</span></p>
+<p> </p>
+<p><span class="pr2">Step 2. </span> Set up <span class="math inline">\(V\)</span> and <span class="math inline">\(\Sigma\)</span>.</p>
+<p>We’ve found the orthonormal basis <span class="math inline">\(\mathrm{\{v_1, \ldots , v_n\}}\)</span> of <span class="math inline">\(\mathbb{C}^\mathrm n\)</span> consisting of eigenvectors of <span class="math inline">\(A^* A\)</span>, arranged so that the corresponding eigenvalues satisfy <span class="math inline">\(\lambda_1 \geq \ldots \geq \lambda_n\)</span>. By definition, the columns of matrix <span class="math inline">\(V\)</span> are the normalized eigenvectors.</p>
+<pre class="language-python"><code>V = Matrix([v_1])
+V = (V.col_insert(1, v_2))</code></pre>
+<p><span class="math inline">\(\mathbf{\text{V}} \equiv \begin{bmatrix}\mathbf{v}_1 \;\; \mathbf{v}_2\end{bmatrix} \equiv \left[\begin{matrix}- \frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2}\end{matrix}\right]\)</span></p>
+<p>Since the only nonzero singular value is <span class="math inline">\(\sigma_1 \equiv \sqrt{12} \equiv 2 \sqrt{3}\)</span> we have that the matrix <span class="math inline">\(D\)</span> is just the <span class="math inline">\(1 \times 1\)</span> matrix <span class="math inline">\(\begin{pmatrix}2 \sqrt{3}\end{pmatrix}\)</span>. Therefore the matrix <span class="math inline">\(\Sigma\)</span>, which has the same size of <span class="math inline">\(A\)</span> and has <span class="math inline">\(D\)</span> in the upper left corner, is</p>
+<pre class="language-python"><code>Sigma = Matrix([[sqrt(eval_1), 0], [0, sqrt(eval_2)], [0, 0]])</code></pre>
+<p><span class="math inline">\(\mathbf{\Sigma} \equiv \left[\begin{matrix}2 \sqrt{3} &amp; 0\\0 &amp; 0\\0 &amp; 0\end{matrix}\right]\)</span></p>
+<p> </p>
+<p><span class="pr2">Step 3. </span> Construct <span class="math inline">\(U\)</span>.</p>
+<p>By the theorem, when <span class="math inline">\(\mathrm{A}\)</span> has rank <span class="math inline">\(r\)</span>, the first <span class="math inline">\(r\)</span> columns of <span class="math inline">\(\mathrm{U}\)</span> are the normalized vectors obtained from <span class="math inline">\(\mathrm{Av_1, \ldots , Av_r}\)</span>.</p>
+<pre class="language-python"><code>u_1 = (A*v_1)/sqrt(eval_1)
+u_1 = u_1/u_1.norm()</code></pre>
+<p><span class="math inline">\(\displaystyle \mathrm{u_1} \equiv \frac{1}{\sigma_1} A v_1 =\frac{\sqrt{3}}{6}\left[\begin{matrix}1 &amp; -1\\2 &amp; -2\\-1 &amp; 1\end{matrix}\right]\left[\begin{matrix}- \frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}\end{matrix}\right]\mathtt{\text{ = }}\left[\begin{matrix}- \frac{\sqrt{6}}{6}\\- \frac{\sqrt{6}}{3}\\\frac{\sqrt{6}}{6}\end{matrix}\right]\)</span></p>
+<p>To get the matrix <span class="math inline">\(\mathrm{U}\)</span> we need to extend <span class="math inline">\(\mathrm{u_1}\)</span> to an orthonormal basis of <span class="math inline">\(\mathbb{C}^3\)</span>. A vector <span class="math inline">\(x\)</span> is orthogonal to <span class="math inline">\(\mathrm{u_1}\)</span> if the equation <span class="math inline">\(-x_1 -2x_2 + x_3 = 0\)</span>. Finding a basis of the space of solutions to this equation we get</p>
+<pre class="language-python"><code>w_2 = Matrix([-1,2,0])
+w_3 = Matrix([1,0,1])</code></pre>
+<p><span class="math inline">\(w_2 \equiv \left[\begin{matrix}-1\\2\\0\end{matrix}\right], \; w_3\equiv \left[\begin{matrix}1\\0\\1\end{matrix}\right]\)</span></p>
+<p>By construction <span class="math inline">\(w_2\)</span> and <span class="math inline">\(w_3\)</span> are orthogonal to <span class="math inline">\(\mathrm{u_1}\)</span>, and therefore these three vectors form a basis of <span class="math inline">\(C^3\)</span>, but <span class="math inline">\(w2\)</span> and <span class="math inline">\(w3\)</span> are not orthogonal. To fix this we apply the Gram-Schmidt process to <span class="math inline">\(\{w_2, w_3\}\)</span> and then normalize.</p>
+<p><span class="math inline">\(\displaystyle \mathrm{u_2} \equiv w_2 - \frac{(\mathrm{u_1} \cdot w_2)}{(\mathrm{u_1} \cdot \mathrm{u_1})} \mathrm{u_1}, \; \; \; \mathrm{u_3} \equiv w_3 - \frac{(\mathrm{u_1} \cdot w_3)}{(\mathrm{u_1}\cdot \mathrm{u_1})} \mathrm{u_1} - \frac{(\mathrm{u_2}\cdot w_3)}{(\mathrm{u_2} \cdot \mathrm{u_2})} \mathrm{u_2}\)</span></p>
+<pre class="language-python"><code>gs_U = GramSchmidt([u_1, w_2, w_3], true)</code></pre>
+<p><span class="math inline">\({gs}_{\mathrm{U}}\equiv \left[ \left[\begin{matrix}- \frac{\sqrt{6}}{6}\\- \frac{\sqrt{6}}{3}\\\frac{\sqrt{6}}{6}\end{matrix}\right], \  \left[\begin{matrix}- \frac{3 \sqrt{14}}{14}\\\frac{\sqrt{14}}{7}\\\frac{\sqrt{14}}{14}\end{matrix}\right], \  \left[\begin{matrix}\frac{2 \sqrt{21}}{21}\\\frac{\sqrt{21}}{21}\\\frac{4 \sqrt{21}}{21}\end{matrix}\right]\right]\)</span></p>
+<p>In the end we get</p>
+<pre class="language-python"><code>U = Matrix([gs_U[0]])
+U = U.col_insert(1, gs_U[1])
+U = U.col_insert(2, gs_U[2])</code></pre>
+<p><span class="math inline">\(\mathbf{U}\equiv \left[\begin{matrix}- \frac{\sqrt{6}}{6} &amp; - \frac{3 \sqrt{14}}{14} &amp; \frac{2 \sqrt{21}}{21}\\- \frac{\sqrt{6}}{3} &amp; \frac{\sqrt{14}}{7} &amp; \frac{\sqrt{21}}{21}\\\frac{\sqrt{6}}{6} &amp; \frac{\sqrt{14}}{14} &amp; \frac{4 \sqrt{21}}{21}\end{matrix}\right]\)</span></p>
+<p>Therefore, the singular value decomposition is</p>
+<pre class="language-python"><code>U*Sigma*V.H</code></pre>
+<p><span class="math inline">\(A\equiv \displaystyle U\Sigma V^{*} \equiv\left[\begin{matrix}- \frac{\sqrt{6}}{6} &amp; - \frac{3 \sqrt{14}}{14} &amp; \frac{2 \sqrt{21}}{21}\\- \frac{\sqrt{6}}{3} &amp; \frac{\sqrt{14}}{7} &amp; \frac{\sqrt{21}}{21}\\\frac{\sqrt{6}}{6} &amp; \frac{\sqrt{14}}{14} &amp; \frac{4 \sqrt{21}}{21}\end{matrix}\right]\left[\begin{matrix}2 \sqrt{3} &amp; 0\\0 &amp; 0\\0 &amp; 0\end{matrix}\right]\left[\begin{matrix}- \frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2}\end{matrix}\right]\)</span></p>
+</div>
+<hr />
+</div>
+</div>
+<div id="pseudoinverses" class="section level2">
+<h2>Pseudoinverses</h2>
+<p><span class="lp32">Definition (Pseudoinverse). </span> Let <span class="math inline">\(A\)</span> be an <span class="math inline">\(m \times n\)</span> matrix with singular value decomposition <span class="math inline">\(A = U\Sigma V^*\)</span>. Then <span class="math inline">\(A^+ = V \Sigma^+ U^*\)</span> is a pseudoinverse of <span class="math inline">\(A\)</span>.</p>
+<div id="calculate-the-pseudoinverse-of-the-following-matrix" class="section level4">
+<h4><span class="sp3">2. </span> Calculate the pseudoinverse of the following matrix:</h4>
+</div>
+<div id="a-aequiv-leftbeginmatrix1-00-10-1endmatrixright" class="section level4">
+<h4><span class="lp30"><span class="math inline">\(\;\)</span> (a) </span> <span class="math inline">\(A\equiv \left[\begin{matrix}1 &amp; 0\\0 &amp; 1\\0 &amp; 1\end{matrix}\right]\)</span></h4>
+<div class="solutions">
+<p><span class="pr">Find the singular value decomposition.</span></p>
+<p><span class="pr3">Step 1. </span> Find an orthogonal diagonalization of <span class="math inline">\(A^* A\)</span>.</p>
+<pre class="language-python"><code>B = A_H*A</code></pre>
+<p><span class="math inline">\(\displaystyle A^{*}A \equiv\left[\begin{matrix}1 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 1\end{matrix}\right]\left[\begin{matrix}1 &amp; 0\\0 &amp; 1\\0 &amp; 1\end{matrix}\right]\equiv\left[\begin{matrix}1 &amp; 0\\0 &amp; 2\end{matrix}\right]\)</span></p>
+<pre class="language-python"><code>eval_1 = ((B.eigenvects())[1])[0]
+eval_2 = ((B.eigenvects())[0])[0]
+
+v_1 = (((B.eigenvects())[1])[2])[0]
+v_2 = (((B.eigenvects())[0])[2])[0]</code></pre>
+<p>The eigenvalues of <span class="math inline">\(A^{*}A\)</span> are <span class="math inline">\(\bf \lambda_1 \equiv 2\)</span> and <span class="math inline">\(\bf \lambda_2 \equiv 1\)</span>, and the corresponding normalized eigenvectors are</p>
+<p><span class="math inline">\(\mathrm{\mathbf{v}_1 \equiv \left[\begin{matrix}0\\1\end{matrix}\right], \; \mathbf{v}_2 \equiv \left[\begin{matrix}1\\0\end{matrix}\right]}\)</span></p>
+<p> </p>
+<p><span class="pr3">Step 2. </span> Set up <span class="math inline">\(V\)</span> and <span class="math inline">\(\Sigma\)</span>.</p>
+<pre class="language-python"><code>V = Matrix([v_1])
+V = V.col_insert(1, v_2)</code></pre>
+<p><span class="math inline">\(\mathbf{V} \equiv \begin{bmatrix}\mathbf{v}_1 \; \mathbf{v}_2 \end{bmatrix}\equiv \left[\begin{matrix}0 &amp; 1\\1 &amp; 0\end{matrix}\right]\)</span></p>
+<p>The square roots of the eigenvalues of <span class="math inline">\(A^* A\)</span> are the singular values <span class="math inline">\(\sigma_1 \equiv \sqrt{2}\)</span> and <span class="math inline">\(\sigma_2 \equiv 1\)</span>. Hence, the matrix <span class="math inline">\(\Sigma\)</span> is</p>
+<pre class="language-python"><code>Sigma = Matrix([[sqrt(eval_1), 0],[0, sqrt(eval_2)],[0, 0]])</code></pre>
+<p><span class="math inline">\(\mathbf{\Sigma} \equiv \left[\begin{matrix}\sqrt{2} &amp; 0\\0 &amp; 1\\0 &amp; 0\end{matrix}\right]\)</span></p>
+<p> </p>
+<p><span class="pr3">Step 3. </span> Construct <span class="math inline">\(U\)</span></p>
+<p>By the theorem, when <span class="math inline">\(A\)</span> has rank <span class="math inline">\(r\)</span> , the first <span class="math inline">\(r\)</span> columns
+of <span class="math inline">\(U\)</span> are the normalized vectors obtained from <span class="math inline">\(\mathrm{Av_1, \ldots , Av_r}\)</span>.</p>
+<pre class="language-python"><code>u_1 = (1/sqrt(eval_1))*A*v_1
+u_1 = u_1/u_1.norm()
+
+u_2 = (1/sqrt(eval_2))*A*v_2
+u_2 = u_2/u_2.norm()</code></pre>
+<p><span class="math inline">\(\displaystyle \mathrm{u_1} \equiv \frac{1}{\sigma_1} A v_1 =\frac{1}{\sqrt{2}}\left[\begin{matrix}1 &amp; 0\\0 &amp; 1\\0 &amp; 1\end{matrix}\right]\left[\begin{matrix}0\\1\end{matrix}\right]\mathtt{\text{ = }}\left[\begin{matrix}0\\\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}\end{matrix}\right]\)</span></p>
+<p><span class="math inline">\(\displaystyle \mathrm{u_2} \equiv \frac{1}{\sigma_2} A v_2 =\frac{1}{\sqrt{1}}\left[\begin{matrix}1 &amp; 0\\0 &amp; 1\\0 &amp; 1\end{matrix}\right]\left[\begin{matrix}1\\0\end{matrix}\right]\mathtt{\text{ = }}\left[\begin{matrix}1\\0\\0\end{matrix}\right]\)</span></p>
+<p>To get the matrix <span class="math inline">\(U\)</span> we need to extend <span class="math inline">\(\mathrm{\{u_1, u_2\}}\)</span> to an orthonormal basis of <span class="math inline">\(\mathbb{C}^3\)</span>. We find a basis <span class="math inline">\(w_3\)</span> of the space of solutions, apply the Gram-Schmidt process, and normalize:</p>
+<pre class="language-python"><code>w_3 = Matrix([[0], [-1], [1]])
+gs_U = GramSchmidt([u_1, u_2, w_3], true)</code></pre>
+<p><span class="math inline">\(gs_U\equiv \left[ \left[\begin{matrix}0\\\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}\end{matrix}\right], \  \left[\begin{matrix}1\\0\\0\end{matrix}\right], \  \left[\begin{matrix}0\\- \frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}\end{matrix}\right]\right]\)</span></p>
+<p>In the end, we get</p>
+<pre class="language-python"><code>U = Matrix([u_1])
+U = U.col_insert(1, u_2)
+U = U.col_insert(2, gs_U[2])</code></pre>
+<p><span class="math inline">\(\mathtt{\mathbf{U}}\equiv \left[\begin{matrix}0 &amp; 1 &amp; 0\\\frac{\sqrt{2}}{2} &amp; 0 &amp; - \frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2} &amp; 0 &amp; \frac{\sqrt{2}}{2}\end{matrix}\right]\)</span></p>
+<p>Therefore, the singular value decomposition is</p>
+<pre class="language-python"><code>U*Sigma*V.H</code></pre>
+<p><span class="math inline">\(\displaystyle A \equiv U\Sigma V^{*} \equiv\left[\begin{matrix}0 &amp; 1 &amp; 0\\\frac{\sqrt{2}}{2} &amp; 0 &amp; - \frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2} &amp; 0 &amp; \frac{\sqrt{2}}{2}\end{matrix}\right]\left[\begin{matrix}\sqrt{2} &amp; 0\\0 &amp; 1\\0 &amp; 0\end{matrix}\right]\left[\begin{matrix}0 &amp; 1\\1 &amp; 0\end{matrix}\right]\)</span></p>
+<p> </p>
+<p><span class="pr">Compute the pseudoinverse. </span></p>
+<p><span class="pr3">Step 4. </span> Calculate the matrix <span class="math inline">\(\Sigma^+\)</span></p>
+<p>Here, <span class="math inline">\(\Sigma^+\)</span> can be found by transposing <span class="math inline">\(\Sigma\)</span> and taking the inverse of each nonzero entry <span class="math inline">\(\frac{1}{\sigma_1}, \ldots , \frac{1}{\sigma_r}\)</span>.</p>
+<pre class="language-python"><code>Sigma+ = Matrix([[1/sqrt(eigen_1), 0, 0], [0, 1/sqrt(eigen_2), 0]])</code></pre>
+<p><span class="math inline">\(\displaystyle \mathbf{\Sigma}^+\equiv \left[\begin{matrix}\frac{\sqrt{2}}{2} &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0\end{matrix}\right]\)</span></p>
+<p>Therefore, the pseudoinverse is</p>
+<pre class="language-python"><code>V*Sigma+*U.H</code></pre>
+<p><span class="math inline">\(\displaystyle \mathbf{A^{+}} \equiv\mathrm{V} \Sigma^{+} U^{*} \equiv\left[\begin{matrix}0 &amp; 1\\1 &amp; 0\end{matrix}\right]\left[\begin{matrix}\frac{\sqrt{2}}{2} &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0\end{matrix}\right]\left[\begin{matrix}0 &amp; \frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2}\\1 &amp; 0 &amp; 0\\0 &amp; - \frac{\sqrt{2}}{2} &amp; \frac{\sqrt{2}}{2}\end{matrix}\right]\equiv\left[\begin{matrix}1 &amp; 0 &amp; 0\\0 &amp; \frac{1}{2} &amp; \frac{1}{2}\end{matrix}\right]\)</span></p>
+</div>
+<hr />
+</div>
+<div id="references" class="section level3 unnumbered">
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-10.7717/peerj-cs.103" class="csl-entry">
+<sup>1</sup> A. Meurer, C.P. Smith, M. Paprocki, O. Čertík, S.B. Kirpichev, M. Rocklin, A. Kumar, S. Ivanov, J.K. Moore, S. Singh, T. Rathnayake, S. Vig, B.E. Granger, R.P. Muller, F. Bonazzi, H. Gupta, S. Vats, F. Johansson, F. Pedregosa, M.J. Curry, A.R. Terrel, Š. Roučka, A. Saboo, I. Fernando, S. Kulal, R. Cimrman, and A. Scopatz, PeerJ Computer Science <strong>3</strong>, e103 (2017).
+</div>
+<div id="ref-layLinearAlgebraIts2016" class="csl-entry">
+<sup>2</sup> D.C. Lay, S.R. Lay, and J. McDonald, <em>Linear Algebra and Its Applications</em>, Fifth edition (<span>Pearson</span>, <span>Boston</span>, 2016).
+</div>
+</div>
+</div>
+</div>
