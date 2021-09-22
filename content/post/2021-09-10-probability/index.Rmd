@@ -29,6 +29,34 @@ Exercises from the book Introduction to Probability by Joseph K. Blitzstein and 
 </div>
 
 
+## Sample Spaces 
+
+### Problem 0.1 
+
+Sara and Megan are two students who show up for a standardized test. Sara has a $\tfrac{1}{8}$ chance of passing the test, whereas Megan has a $\tfrac{5}{12}$ chance. What are the chances that at least one of them will pass the test?
+
+<div class="example1">
+**Solution.** Let $A$ denote the event that Sara passes the test and $B$ denote the event that Megan passes. Then we have that $P(A) = \tfrac{1}{8}$ and $P(B)=\tfrac{5}{12}$. Now, the probability of at least one of them passing the test is denoted as the union of $A$ and $B$, which means
+
+$$
+\begin{align}
+P(A \cup B) & \equiv P(A) + P(B) - P(A \cap B) \\
+& \equiv P(A) + P(B) - P(A)P(B) \\
+&\equiv \tfrac{1}{8} + \tfrac{5}{12} - \tfrac{1}{8}\times \tfrac{5}{12} \\
+&\equiv \tfrac{47}{96}
+\end{align}
+$$
+
+
+</div>
+
+
+
+------------------------------------------
+
+
+
+
 ## Conditional Probability and Bayes' Rule
 
 
@@ -287,6 +315,31 @@ $$
 
 </div>
 
+
+
+---------------------------------
+
+
+### Problem 2.3
+
+You have a bag with $6$ marbles. One marble is red. You draw from the bag $100$ times, with replacement. What is the probability of drawing a red marble at least once?
+
+<div class="example1">
+**Solution.** Suppose $X$ is number of times a red marble is drawn. Then we have $X \sim \mathrm{Bin}\left(n=6, p=\tfrac{1}{6}\right)$. By the naive definition of probability, this is 
+
+$$
+\begin{align}
+\mathbf{P}(X \geq 1) & \equiv 1 - \mathbf{P}(x=0) \\
+&\equiv 1 - {\small\begin{pmatrix}100 \\ 0 \end{pmatrix}}
+\left(\tfrac{1}{6}\right)^{0} \left(\tfrac{5}{6}\right)^{100} \\
+& \equiv 1 - \left(\tfrac{5}{6}\right)^{100} \\
+& \approx 0.99
+\end{align}
+$$
+
+
+
+</div>
 
 
 -------------------------------------------

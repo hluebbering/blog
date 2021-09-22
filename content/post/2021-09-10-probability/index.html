@@ -20,6 +20,25 @@ nocite: '@*'
 <div class="definition1">
 <p>Exercises from the book Introduction to Probability by Joseph K. Blitzstein and Jessica Hwang © Chapman &amp; Hall/CRC Press, 2014.<span class="citation"><sup><a href="#ref-blitzstein-2019" role="doc-biblioref">1</a></sup></span></p>
 </div>
+<div id="sample-spaces" class="section level2">
+<h2>Sample Spaces</h2>
+<div id="problem-0.1" class="section level3">
+<h3>Problem 0.1</h3>
+<p>Sara and Megan are two students who show up for a standardized test. Sara has a <span class="math inline">\(\small \tfrac{1}{8}\)</span> chance of passing the test, whereas Megan has a <span class="math inline">\(\small \tfrac{5}{12}\)</span> chance. What are the chances that at least one of them will pass the test?</p>
+<div class="example1">
+<p>Let <span class="math inline">\(\small A\)</span> denote the event that Sara passes the test and <span class="math inline">\(\small B\)</span> denote the event that Megan passes. Then we have that <span class="math inline">\(\small P(A) = \tfrac{1}{8}\)</span> and <span class="math inline">\(\small P(B)=\tfrac{5}{12}\)</span>. Now, the probability of at least one of them passing the test is denoted as the union of <span class="math inline">\(\small A\)</span> and <span class="math inline">\(\small B\)</span>, which means</p>
+<p><span class="math display">\[
+\begin{align}
+P(A \cup B) &amp; \equiv P(A) + P(B) - P(A \cap B) \\
+&amp; \equiv P(A) + P(B) - P(A)P(B) \\
+&amp;\equiv \tfrac{1}{8} + \tfrac{5}{12} - \tfrac{1}{8}\times \tfrac{5}{12} \\
+&amp;\equiv \tfrac{47}{96}
+\end{align}
+\]</span></p>
+</div>
+<hr />
+</div>
+</div>
 <div id="conditional-probability-and-bayes-rule" class="section level2">
 <h2>Conditional Probability and Bayes’ Rule</h2>
 <div id="problem-1.1" class="section level3">
@@ -179,6 +198,23 @@ P(T=5) &amp; \equiv
 \begin{pmatrix}10 \\ 5\end{pmatrix} 
 0.6^5 \cdot 0.4^{10-5} \\
 &amp; \equiv \frac{10!}{5! \cdot 5!}\cdot 0.6^5 \cdot 0.4^5 \cong 0.20
+\end{align}
+\]</span></p>
+</div>
+<hr />
+</div>
+<div id="problem-2.3" class="section level3">
+<h3>Problem 2.3</h3>
+<p>You have a bag with <span class="math inline">\(\small 6\)</span> marbles. One marble is red. You draw from the bag <span class="math inline">\(\small 100\)</span> times, with replacement. What is the probability of drawing a red marble at least once?</p>
+<div class="example1">
+<p><strong>Solution.</strong> Suppose <span class="math inline">\(\small X\)</span> is number of times a red marble is drawn. Then we have <span class="math inline">\(\small X \sim \mathrm{Bin}\left(n=6, p=\tfrac{1}{6}\right)\)</span>. By the naive definition of probability, this is</p>
+<p><span class="math display">\[
+\begin{align}
+\mathbf{P}(X \geq 1) &amp; \equiv 1 - \mathbf{P}(x=0) \\
+&amp;\equiv 1 - {\small\begin{pmatrix}100 \\ 0 \end{pmatrix}}
+\left(\tfrac{1}{6}\right)^{0} \left(\tfrac{5}{6}\right)^{100} \\
+&amp; \equiv 1 - \left(\tfrac{5}{6}\right)^{100} \\
+&amp; \approx 0.99
 \end{align}
 \]</span></p>
 </div>
