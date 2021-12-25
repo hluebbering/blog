@@ -24,11 +24,6 @@ library(ggplot2)
 
 
 
-<div class="definition1">
-Exercises from the book Introduction to Probability by Joseph K. Blitzstein and Jessica Hwang &copy; Chapman & Hall/CRC Press, 2014 [@blitzstein-2019].
-</div>
-
-
 ## Sample Spaces 
 
 ### Problem 0.1 
@@ -342,10 +337,13 @@ $$
 </div>
 
 
--------------------------------------------
+
+\ 
 
 
-## Continuous Random Variables
+<div class="definition1">
+Exercises from the book Introduction to Probability by Joseph K. Blitzstein and Jessica Hwang &copy; Chapman & Hall/CRC Press, 2014 [@blitzstein-2019].
+</div>
 
 
 -------------------------------------------

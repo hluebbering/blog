@@ -6,15 +6,24 @@
     <description>Recent content on Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multimodal Neurons in Neural Networks</title>
+      <link>https://hluebbering.github.io/posts/2021/12/12/multimodal-neurons-in-neural-networks/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hluebbering.github.io/posts/2021/12/12/multimodal-neurons-in-neural-networks/</guid>
+      <description>IntroductionThe robustness and high-level expression performed by neurons in the human brain are still unclear today. Consequently, the field of Neuroscience is still far from understanding how the brain operates and solves complex tasks such as differentiating classic rock from classical music or recognizing a visual representation of a person or object, all of which take only a fraction of a second.</description>
+    </item>
+    
     <item>
       <title>Probability Practice Problems</title>
       <link>https://hluebbering.github.io/posts/2021/09/10/probability/</link>
       <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hluebbering.github.io/posts/2021/09/10/probability/</guid>
-      <description>Exercises from the book Introduction to Probability by Joseph K. Blitzstein and Jessica Hwang © Chapman &amp;amp; Hall/CRC Press, 2014.1
-Sample SpacesProblem 0.1Sara and Megan are two students who show up for a standardized test. Sara has a \(\small \tfrac{1}{8}\) chance of passing the test, whereas Megan has a \(\small \tfrac{5}{12}\) chance. What are the chances that at least one of them will pass the test?</description>
+      <description>Sample SpacesProblem 0.1Sara and Megan are two students who show up for a standardized test. Sara has a \(\tfrac{1}{8}\) chance of passing the test, whereas Megan has a \(\tfrac{5}{12}\) chance. What are the chances that at least one of them will pass the test?
+Solution. Let \(A\) denote the event that Sara passes the test and \(B\) denote the event that Megan passes. Then we have that \(P(A) = \tfrac{1}{8}\) and \(P(B)=\tfrac{5}{12}\).</description>
     </item>
     
     <item>
@@ -32,8 +41,8 @@
       <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hluebbering.github.io/posts/2021/04/19/googles-pagerank/</guid>
-      <description>PageRank as a Markov ChainSergy Brin and Larry Page developed PageRank as a way to rank the importance of a webpage on the internet based on the counted number of links to it. For example, consider the following internet:
-Figure 1: PageRank as a Markov Chain.\(\require{color}\definecolor{teall}{RGB}{58, 171, 174} \definecolor{bluemoon}{RGB}{62, 71, 125} \definecolor{redhot}{RGB}{255, 145, 115} \definecolor{periwinkle}{RGB}{159, 160, 255} \definecolor{purpley}{RGB}{31, 35, 255} \definecolor{gween}{RGB}{73, 175, 129} \definecolor{pinky}{RGB}{251, 109, 134} \definecolor{pinky2}{RGB}{241, 67, 192} \definecolor{maglav}{RGB}{241, 167, 254}\)</description>
+      <description>PageRank as a Markov Chain Sergy Brin and Larry Page developed PageRank as a way to rank the importance of a webpage on the internet based on the counted number of links to it. For example, consider the following internet:
+ Figure 1: PageRank as a Markov Chain.  \(\require{color}\definecolor{teall}{RGB}{58, 171, 174} \definecolor{bluemoon}{RGB}{62, 71, 125} \definecolor{redhot}{RGB}{255, 145, 115} \definecolor{periwinkle}{RGB}{159, 160, 255} \definecolor{purpley}{RGB}{31, 35, 255} \definecolor{gween}{RGB}{73, 175, 129} \definecolor{pinky}{RGB}{251, 109, 134} \definecolor{pinky2}{RGB}{241, 67, 192} \definecolor{maglav}{RGB}{241, 167, 254}\)</description>
     </item>
     
     <item>
@@ -42,7 +51,7 @@
       <pubDate>Sun, 10 Jan 2021 21:13:14 -0500</pubDate>
       
       <guid>https://hluebbering.github.io/posts/2021/01/10/sequences-and-series-in-python/</guid>
-      <description>Convergence of a SequenceDefinition. (Sequence Convergence)  A sequence \((a_n)\) converges to a real number \(a\) if, for every positive number \(\epsilon\), there exists an \(N \in \mathbb N\) such that whenever \(n \geq N\) it follows that \(\left|a_n − a\right| \lt \epsilon\).
+      <description>Convergence of a Sequence Definition. (Sequence Convergence)  A sequence \((a_n)\) converges to a real number \(a\) if, for every positive number \(\epsilon\), there exists an \(N \in \mathbb N\) such that whenever \(n \geq N\) it follows that \(\left|a_n − a\right| \lt \epsilon\).
 In the following, we will determine whether a given sequence converges to a certain limit, and then we’ll use Python to illustrate the sequence graphically.</description>
     </item>
     

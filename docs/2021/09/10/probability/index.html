@@ -70,16 +70,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-<div class="definition1">
-<p>Exercises from the book Introduction to Probability by Joseph K. Blitzstein and Jessica Hwang © Chapman &amp; Hall/CRC Press, 2014.<span class="citation"><sup><a href="#ref-blitzstein-2019" role="doc-biblioref">1</a></sup></span></p>
-</div>
 <div id="sample-spaces" class="section level2">
 <h2>Sample Spaces</h2>
 <div id="problem-0.1" class="section level3">
 <h3>Problem 0.1</h3>
-<p>Sara and Megan are two students who show up for a standardized test. Sara has a <span class="math inline">\(\small \tfrac{1}{8}\)</span> chance of passing the test, whereas Megan has a <span class="math inline">\(\small \tfrac{5}{12}\)</span> chance. What are the chances that at least one of them will pass the test?</p>
+<p>Sara and Megan are two students who show up for a standardized test. Sara has a <span class="math inline">\(\tfrac{1}{8}\)</span> chance of passing the test, whereas Megan has a <span class="math inline">\(\tfrac{5}{12}\)</span> chance. What are the chances that at least one of them will pass the test?</p>
 <div class="example1">
-<p>Let <span class="math inline">\(\small A\)</span> denote the event that Sara passes the test and <span class="math inline">\(\small B\)</span> denote the event that Megan passes. Then we have that <span class="math inline">\(\small P(A) = \tfrac{1}{8}\)</span> and <span class="math inline">\(\small P(B)=\tfrac{5}{12}\)</span>. Now, the probability of at least one of them passing the test is denoted as the union of <span class="math inline">\(\small A\)</span> and <span class="math inline">\(\small B\)</span>, which means</p>
+<p><strong>Solution.</strong> Let <span class="math inline">\(A\)</span> denote the event that Sara passes the test and <span class="math inline">\(B\)</span> denote the event that Megan passes. Then we have that <span class="math inline">\(P(A) = \tfrac{1}{8}\)</span> and <span class="math inline">\(P(B)=\tfrac{5}{12}\)</span>. Now, the probability of at least one of them passing the test is denoted as the union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, which means</p>
 <p><span class="math display">\[
 \begin{align}
 P(A \cup B) &amp; \equiv P(A) + P(B) - P(A \cap B) \\
@@ -258,9 +255,9 @@ P(T=5) &amp; \equiv
 </div>
 <div id="problem-2.3" class="section level3">
 <h3>Problem 2.3</h3>
-<p>You have a bag with <span class="math inline">\(\small 6\)</span> marbles. One marble is red. You draw from the bag <span class="math inline">\(\small 100\)</span> times, with replacement. What is the probability of drawing a red marble at least once?</p>
+<p>You have a bag with <span class="math inline">\(6\)</span> marbles. One marble is red. You draw from the bag <span class="math inline">\(100\)</span> times, with replacement. What is the probability of drawing a red marble at least once?</p>
 <div class="example1">
-<p><strong>Solution.</strong> Suppose <span class="math inline">\(\small X\)</span> is number of times a red marble is drawn. Then we have <span class="math inline">\(\small X \sim \mathrm{Bin}\left(n=6, p=\tfrac{1}{6}\right)\)</span>. By the naive definition of probability, this is</p>
+<p><strong>Solution.</strong> Suppose <span class="math inline">\(X\)</span> is number of times a red marble is drawn. Then we have <span class="math inline">\(X \sim \mathrm{Bin}\left(n=6, p=\tfrac{1}{6}\right)\)</span>. By the naive definition of probability, this is</p>
 <p><span class="math display">\[
 \begin{align}
 \mathbf{P}(X \geq 1) &amp; \equiv 1 - \mathbf{P}(x=0) \\
@@ -271,12 +268,12 @@ P(T=5) &amp; \equiv
 \end{align}
 \]</span></p>
 </div>
+<p> </p>
+<div class="definition1">
+<p>Exercises from the book Introduction to Probability by Joseph K. Blitzstein and Jessica Hwang © Chapman &amp; Hall/CRC Press, 2014.<span class="citation"><sup><a href="#ref-blitzstein-2019" role="doc-biblioref">1</a></sup></span></p>
+</div>
 <hr />
 </div>
-</div>
-<div id="continuous-random-variables" class="section level2">
-<h2>Continuous Random Variables</h2>
-<hr />
 <div id="references" class="section level3 unnumbered">
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body">
