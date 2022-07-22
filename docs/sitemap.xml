@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hluebbering.github.io/posts/</loc>
+    <loc>https://hluebbering.github.io/blog/</loc>
     <lastmod>2022-01-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/post/</loc>
+    <loc>https://hluebbering.github.io/blog/post/</loc>
     <lastmod>2022-01-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/2022/01/10/space-exploration-data-analysis/</loc>
+    <loc>https://hluebbering.github.io/blog/2022/01/10/space-exploration-data-analysis/</loc>
     <lastmod>2022-01-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/2021/12/12/multimodal-neurons-in-neural-networks/</loc>
+    <loc>https://hluebbering.github.io/blog/2021/12/12/multimodal-neurons-in-neural-networks/</loc>
     <lastmod>2021-12-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/2021/09/10/probability/</loc>
+    <loc>https://hluebbering.github.io/blog/2021/09/10/probability/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/2021/04/27/linear-algebra-using-sympy/</loc>
+    <loc>https://hluebbering.github.io/blog/2021/04/27/linear-algebra-using-sympy/</loc>
     <lastmod>2021-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/2021/04/19/googles-pagerank/</loc>
+    <loc>https://hluebbering.github.io/blog/2021/04/19/googles-pagerank/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/2021/01/10/sequences-and-series-in-python/</loc>
+    <loc>https://hluebbering.github.io/blog/2021/01/10/sequences-and-series-in-python/</loc>
     <lastmod>2021-01-10T21:13:14-05:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/about/</loc>
+    <loc>https://hluebbering.github.io/blog/about/</loc>
     <lastmod>2020-01-05T21:48:51-07:00</lastmod>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/categories/</loc>
+    <loc>https://hluebbering.github.io/blog/categories/</loc>
   </url><url>
-    <loc>https://hluebbering.github.io/posts/tags/</loc>
+    <loc>https://hluebbering.github.io/blog/tags/</loc>
   </url>
 </urlset>

@@ -1,4 +1,4 @@
-baseurl: "https://hluebbering.github.io/posts/"
+baseurl: "https://hluebbering.github.io/blog/"
 languageCode: en-us
 title: Data Science Blog
 theme: hugo-lithium
