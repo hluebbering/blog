@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Data Science Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/posts/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hluebbering.github.io/posts/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Space Exploration Data Analysis</title>
+      <link>https://hluebbering.github.io/posts/2022/01/10/space-exploration-data-analysis/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hluebbering.github.io/posts/2022/01/10/space-exploration-data-analysis/</guid>
+      <description>IntroductionSpace exploration is a global endeavor that has continued to progress for over seven decades. These efforts rely on advancements in technology, rockets, satellites, rovers, and more. And with each planetary science mission and related activity comes tremendous spending costs and expenditures. However, such space exploration efforts and expenses are constantly changing based on national priorities, budget proposals, destinations, the role of prominent programs, research, launch spending, and more.</description>
+    </item>
+    
     <item>
       <title>Multimodal Neurons in Neural Networks</title>
       <link>https://hluebbering.github.io/posts/2021/12/12/multimodal-neurons-in-neural-networks/</link>

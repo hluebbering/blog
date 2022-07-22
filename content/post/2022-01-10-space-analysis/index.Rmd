@@ -1,0 +1,142 @@
+---
+title: "Space Exploration Data Analysis"
+author: "Hannah Luebbering"
+date: '2022-01-10'
+header-includes:
+  - \usepackage{xfrac}
+bibliography: refs.bib
+csl: norsk-apa-manual
+nocite: '@*'
+css: 'assets/main3.css'
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(kableExtra)
+library(pagedown)
+library(DiagrammeR)
+library(tidyverse)
+library(DiagrammeRsvg)
+library(magick)
+library(ggplot2)
+library(dplyr)
+library(plotly)
+library(hrbrthemes)
+library(forcats)
+library(viridis)
+library(scales)
+library(stats)
+
+```
+
+
+
+
+## Introduction
+
+Space exploration is a global endeavor that has continued to progress for over seven decades. These efforts rely on advancements in technology, rockets, satellites, rovers, and more. And with each planetary science mission and related activity comes tremendous spending costs and expenditures. However, such space exploration efforts and expenses are constantly changing based on national priorities, budget proposals, destinations, the role of prominent programs, research, launch spending, and more. This project proposal aims to find out what drives the progression of certain space exploration missions over others by analyzing planetary exploration budget data.
+
+
+
+
+### Data Sources 
+
+
+The Planetary Exploration Budget Dataset provides valuable data incorporating annual spending history for each documented NASA planetary space mission and related activities. This dataset offers adjustments for inflation and allows immediate comparisons between the past and present space exploration efforts in the United States. The dataset includes the following:
+
+- `Mission Costs`: a complete register of yearly spending for all space missions from 1960 to 2021.
+- `Space Budget History`: total funding provided and spent for the history of space programs such as NASA. In addition, there is the same data adjusted for inflation.
+- `Funding by Destination`: total spending per year for major solar system destinations.
+- `Major Programs`: total fundings for prominent space programs from 1990 to 2021; this includes SpaceX, Mariner, Discovery, New Frontiers, Mars Exploration Program, and more.
+- `Decadal Totals`: comparisons on destination and total funding based on the space decadal survey for a period.
+
+
+
+
+
+
+
+## Data Visualizations
+
+
+In the following, we plot the yearly development and operations expenses for NASA space missions, which can be grouped by the planetary destination. 
+
+
+```{r}
+rhg_cols <- c("#BCAFCF", "#6667AB", "#5A1F51", "#253668", "#117C87", "#86A96F")
+
+df1 <- read.csv("data/Budget_Destination.csv")
+colnames(df1) = c("Destination", "Value", "Year")
+```
+
+
+
+```{r}
+p1 <- df1 %>%
+  mutate(text= paste("Destination: ", df1$Destination)) %>%
+  mutate(Dest = factor(Destination, levels = c("The Moon", "Mars", "Venus", "Mercury", "Outer Planets", "Small Bodies"))) %>%
+  filter(!is.na(Dest)) %>%
+  ggplot(aes(x = Year, y = Value)) +
+  geom_line(aes(color=Dest), size=0.7) +
+  scale_color_manual(values = rhg_cols) + theme_ipsum() +
+  labs(title="NASA Planetary Spending, By Destination", x = "", y="")+ 
+  theme(plot.title = element_text(size = 10, color="#36454f", family = "Frank Ruhl Libre"), 
+        legend.text = element_text(size=8, color="#36454f", family = "Frank Ruhl Libre"),
+        legend.title = element_text(colour = "white", size = 0),
+        axis.title.x  = element_text(size=9, color="#36454f", family = "Frank Ruhl Libre"),
+        axis.title.y  = element_text(size=9, color="#36454f", family = "Frank Ruhl Libre"),
+        axis.text = element_text(colour = "gray", family = "Roboto Condensed", face="bold"),
+        axis.text.x = element_text(size = 9),
+        axis.text.y = element_text(size = 8)) +
+  scale_x_continuous(n.breaks = 8) +
+  scale_y_continuous(limits = c(0, 2200), labels = label_number(suffix = " B", scale = 1e-3)) + theme(legend.position="bottom")
+p1 <- ggplotly(p1, tooltip = "text") # %>% layout(legend = list(orientation = "h", y = -0.02))
+p1
+```
+
+
+
+
+
+Next, we plot the total annual expenses for NASA space missions, grouped by the actual spending and the initial requested amount for spending.
+
+
+```{r}
+rhg_cols <- c("#BCAFCF", "#6667AB", "#5A1F51", "#253668", "#117C87", "#86A96F")
+
+df2 <- read.csv("data/Budget_Year.csv")
+colnames(df2) = c("Value", "Type", "Year", "Percent")
+```
+
+
+```{r}
+p2 <- df2 %>%
+  filter(!is.na(Value)) %>%
+  ggplot(aes(x = Year, y = Value)) +
+  geom_line(aes(color=Type, linetype=Type), size=0.75) +
+  scale_color_manual(values = c("#117C87", "gray")) + theme_ipsum() +
+  labs(title="NASA Planetary Spending By Year", x = "", y="")+ 
+  theme(plot.title = element_text(size = 10, color="#36454f", family = "Frank Ruhl Libre"), legend.text = element_text(size=8, color="#36454f", family = "Frank Ruhl Libre"), legend.title = element_text(colour = "white", size = 0), axis.title.x  = element_text(size=9, color="#36454f", family = "Frank Ruhl Libre"), axis.title.y  = element_text(size=9, color="#36454f", family = "Frank Ruhl Libre"), axis.text = element_text(colour = "gray", family = "Roboto Condensed", face="bold"), axis.text.x = element_text(size = 9), axis.text.y = element_text(size = 8)) +
+  scale_x_continuous(n.breaks = 8) +
+  scale_y_continuous(limits = c(0, 3900), labels = label_number(suffix = " B", scale = 1e-3)) + theme(legend.position="bottom")
+
+p2 <- ggplotly(p2) # %>% layout(legend = list(orientation = "h", y = -0.02))
+p2
+```
+
+
+
+
+-------------------------------------------
+
+
+
+
+## References
+
+
+
+
+

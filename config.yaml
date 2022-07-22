@@ -2,6 +2,7 @@ baseurl: "https://hluebbering.github.io/posts/"
 languageCode: en-us
 title: Data Science Blog
 theme: hugo-lithium
+publishDir: docs
 googleAnalytics: ''
 disqusShortname: ''
 ignoreFiles:
